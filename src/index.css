@@ -3629,3 +3629,76 @@ button,
   .mock-chat,
   .project-art-orbit { translate: none; }
 }
+
+/* Pop the assets forward in screen space, not merely inside the card's surface. */
+.service-icon-wrap {
+  transform: translate3d(0, -16px, 0) scale(1.06) !important;
+  box-shadow: 0 25px 36px -10px rgba(4, 7, 9, 0.72), 0 0 32px rgba(225, 189, 126, 0.18) !important;
+}
+.service-card-link:hover .service-icon-wrap,
+.service-card-link:focus-visible .service-icon-wrap {
+  transform: translate3d(0, -30px, 36px) rotate(-7deg) scale(1.18) !important;
+  box-shadow: 0 36px 46px -12px rgba(4, 7, 9, 0.82), 0 0 42px rgba(225, 189, 126, 0.28) !important;
+}
+.service-icon {
+  transform: translateZ(24px) scale(1.08) !important;
+  filter: drop-shadow(0 8px 10px rgba(3, 5, 7, 0.72)) !important;
+}
+.service-card-link:hover .service-icon,
+.service-card-link:focus-visible .service-icon {
+  transform: translateZ(42px) scale(1.22) rotate(13deg) !important;
+}
+
+.project-art {
+  isolation: auto !important;
+}
+.project-preview-float {
+  z-index: 100 !important;
+  filter: drop-shadow(0 36px 38px rgba(3, 5, 7, 0.6)) !important;
+}
+.project-card .mock-studio,
+.project-card .mock-dashboard,
+.project-card .mock-chat {
+  z-index: 120 !important;
+  box-shadow: 0 34px 48px -14px rgba(3, 5, 7, 0.78), 0 0 28px rgba(225, 189, 126, 0.1) !important;
+}
+.project-card .mock-studio {
+  transform: translate3d(0, -24px, 78px) rotate(-3deg) scale(1.04) !important;
+}
+.project-card .mock-dashboard {
+  transform: translate3d(0, -24px, 78px) rotate(2deg) scale(1.04) !important;
+}
+.project-card .mock-chat {
+  transform: translate3d(0, -24px, 78px) rotate(-2deg) scale(1.04) !important;
+}
+.project-card:hover .mock-studio,
+.project-card:focus-within .mock-studio {
+  transform: translate3d(0, -48px, 128px) rotate(0deg) scale(1.14) !important;
+}
+.project-card:hover .mock-dashboard,
+.project-card:focus-within .mock-dashboard {
+  transform: translate3d(0, -48px, 128px) rotate(0deg) scale(1.14) !important;
+}
+.project-card:hover .mock-chat,
+.project-card:focus-within .mock-chat {
+  transform: translate3d(0, -48px, 128px) rotate(0deg) scale(1.14) !important;
+}
+.project-card .project-art-orbit {
+  z-index: 70 !important;
+  transform: translate3d(0, -14px, 30px) rotate(-23deg) scaleY(0.72) !important;
+}
+.project-card:hover .project-art-orbit,
+.project-card:focus-within .project-art-orbit {
+  transform: translate3d(0, -28px, 48px) rotate(0deg) scaleY(0.78) scale(1.08) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-icon-wrap,
+  .service-icon,
+  .project-card .mock-studio,
+  .project-card .mock-dashboard,
+  .project-card .mock-chat,
+  .project-card .project-art-orbit {
+    transform: none !important;
+  }
+}

@@ -5,6 +5,7 @@ import SectionHeading from './SectionHeading.jsx'
 import useHorizontalRail from '../hooks/useHorizontalRail.js'
 import useSectionMotion from '../hooks/useSectionMotion.js'
 import { ArrowRight, ArrowUpRight, ServiceIcon } from './Icons.jsx'
+import InkBleed from './InkBleed.jsx'
 
 const services = [
   {
@@ -105,6 +106,7 @@ export default function Services() {
 
   return (
     <section ref={sectionRef} className="section-pad section-services" id="services" aria-labelledby="services-title">
+      <InkBleed className="ink-bleed--services" />
       <motion.div className="section-scroll-decor section-scroll-decor--services" style={{ y: serviceDrift, rotate: serviceRotate, opacity: serviceGlow }} aria-hidden="true" />
       <div className="site-container">
         <div className="services-header">

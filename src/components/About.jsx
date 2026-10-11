@@ -2,6 +2,7 @@ import { motion, useTransform } from 'framer-motion'
 import Reveal from './Reveal.jsx'
 import useSectionMotion from '../hooks/useSectionMotion.js'
 import SectionHeading from './SectionHeading.jsx'
+import InkBleed from './InkBleed.jsx'
 
 const principles = [
   { number: '01', title: 'AI as an accelerator', text: 'More momentum, with a developer steering the work.' },
@@ -16,6 +17,7 @@ export default function About() {
 
   return (
     <section ref={sectionRef} className="section-pad section-about" id="about" aria-labelledby="about-title">
+      <InkBleed className="ink-bleed--about" />
       <motion.div className="section-scroll-decor section-scroll-decor--about" style={{ y: aboutDrift, scale: aboutScale }} aria-hidden="true" />
       <div className="site-container about-layout">
         <Reveal className="about-heading">

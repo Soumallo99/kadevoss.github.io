@@ -3,6 +3,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion
 import Reveal from './Reveal.jsx'
 import SectionHeading from './SectionHeading.jsx'
 import useSectionMotion from '../hooks/useSectionMotion.js'
+import InkBleed from './InkBleed.jsx'
 
 const steps = [
   {
@@ -69,6 +70,7 @@ export default function Process() {
 
   return (
     <section ref={sectionRef} className="section-pad section-process" id="process" aria-labelledby="process-title">
+      <InkBleed className="ink-bleed--process" />
       <motion.div className="section-scroll-decor section-scroll-decor--process" style={{ y: processDrift, rotate: processRotate }} aria-hidden="true" />
       <div className="site-container process-layout">
         <Reveal className="process-intro">

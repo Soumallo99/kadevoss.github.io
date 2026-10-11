@@ -2811,3 +2811,154 @@ h6,
     0 0 26px rgba(195, 154, 98, 0.1);
 }
 .project-preview-float { transition: opacity 520ms cubic-bezier(0.19, 1, 0.22, 1), filter 520ms cubic-bezier(0.19, 1, 0.22, 1); }
+
+/* Cinematic motion layer --------------------------------------------------- */
+.hero-layout {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-etching-layer {
+  position: absolute;
+  z-index: 0;
+  inset: -5% -4%;
+  background: url('/edinburgh-etching.svg') center / 122% auto no-repeat;
+  opacity: 0.34;
+  filter: sepia(0.2) grayscale(0.68) contrast(1.18);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.hero-art-stage {
+  background-image: linear-gradient(135deg, rgba(18, 27, 34, 0.24), rgba(195, 154, 98, 0.08));
+}
+
+.edinburgh-fog {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.edinburgh-fog--far {
+  top: 35%;
+  right: -12%;
+  width: 72%;
+  height: 24%;
+  border-radius: 50%;
+  background: linear-gradient(90deg, transparent, rgba(224, 209, 184, 0.14), transparent);
+  filter: blur(13px);
+  mix-blend-mode: screen;
+}
+
+.scroll-atmosphere__fog {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+  mix-blend-mode: screen;
+  animation: fog-breathe 31s ease-in-out infinite alternate;
+}
+.scroll-atmosphere__fog--back {
+  top: 19%;
+  left: -15vw;
+  width: 68vw;
+  height: 19vw;
+  min-height: 145px;
+  background:
+    radial-gradient(ellipse at 48% 50%, rgba(170, 174, 173, 0.09), transparent 66%),
+    linear-gradient(90deg, transparent, rgba(218, 201, 174, 0.055), transparent);
+  filter: blur(31px);
+}
+.scroll-atmosphere__fog--front {
+  top: 72%;
+  right: -16vw;
+  width: 72vw;
+  height: 23vw;
+  min-height: 160px;
+  background:
+    radial-gradient(ellipse at 52% 50%, rgba(206, 174, 124, 0.075), transparent 66%),
+    linear-gradient(90deg, transparent, rgba(212, 201, 182, 0.05), transparent);
+  filter: blur(38px);
+  animation-delay: -13s;
+}
+
+@keyframes fog-breathe {
+  0% { opacity: 0.34; background-position: 0 0, 0 0; }
+  45% { opacity: 0.56; background-position: 12% 4%, 20px 0; }
+  100% { opacity: 0.28; background-position: -9% -3%, -15px 0; }
+}
+
+/* Gaslight flicker: the light catches, settles, and catches again instead of snapping. */
+@keyframes gaslight-text {
+  0%, 100% { text-shadow: 0 0 0 rgba(225, 189, 126, 0); }
+  17% { text-shadow: 0 0 7px rgba(225, 189, 126, 0.25); }
+  23% { text-shadow: 0 0 2px rgba(225, 189, 126, 0.08); }
+  54% { text-shadow: 0 0 12px rgba(225, 189, 126, 0.36); }
+  61% { text-shadow: 0 0 4px rgba(225, 189, 126, 0.12); }
+}
+
+@keyframes gaslight-edge {
+  0%, 100% {
+    box-shadow: 0 3px 0 rgba(8, 12, 15, 0.34), 0 0 0 rgba(225, 189, 126, 0);
+    text-shadow: 0 0 0 rgba(225, 189, 126, 0);
+  }
+  18% {
+    box-shadow: 0 3px 0 rgba(8, 12, 15, 0.34), 0 0 11px rgba(225, 189, 126, 0.2);
+    text-shadow: 0 0 7px rgba(225, 189, 126, 0.22);
+  }
+  25% {
+    box-shadow: 0 3px 0 rgba(8, 12, 15, 0.34), 0 0 4px rgba(225, 189, 126, 0.08);
+    text-shadow: 0 0 2px rgba(225, 189, 126, 0.08);
+  }
+  54% {
+    box-shadow: 0 3px 0 rgba(8, 12, 15, 0.34), 0 0 18px rgba(225, 189, 126, 0.34);
+    text-shadow: 0 0 12px rgba(225, 189, 126, 0.34);
+  }
+  62% {
+    box-shadow: 0 3px 0 rgba(8, 12, 15, 0.34), 0 0 6px rgba(225, 189, 126, 0.1);
+    text-shadow: 0 0 4px rgba(225, 189, 126, 0.1);
+  }
+}
+
+:where(a, button):hover,
+:where(a, button):focus-visible {
+  animation: gaslight-text 2.8s ease-in-out infinite;
+}
+
+:where(.button, .nav-cta, .project-cta, .service-arrow-controls button, .project-arrow-controls button):hover,
+:where(.button, .nav-cta, .project-cta, .service-arrow-controls button, .project-arrow-controls button):focus-visible {
+  animation: gaslight-edge 2.8s ease-in-out infinite;
+}
+
+/* Ink blooms over each section before receding into the paper-toned canvas. */
+.ink-bleed {
+  position: absolute;
+  z-index: 0;
+  inset: -8% -4%;
+  background:
+    radial-gradient(ellipse at 12% 0%, rgba(8, 14, 19, 0.76), transparent 46%),
+    radial-gradient(ellipse at 73% 45%, rgba(18, 25, 31, 0.35), transparent 64%);
+  filter: blur(1px) contrast(1.08);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  will-change: clip-path, opacity;
+}
+.ink-bleed--hero { background: radial-gradient(ellipse at 26% 8%, rgba(9, 15, 20, 0.62), transparent 52%); }
+.ink-bleed--services { background: radial-gradient(ellipse at 72% 0%, rgba(10, 16, 21, 0.6), transparent 54%); }
+.ink-bleed--process { background: radial-gradient(ellipse at 18% 10%, rgba(11, 17, 22, 0.6), transparent 56%); }
+.ink-bleed--work { background: radial-gradient(ellipse at 64% 0%, rgba(10, 16, 21, 0.66), transparent 52%); }
+.ink-bleed--about { background: radial-gradient(ellipse at 24% 30%, rgba(11, 17, 22, 0.58), transparent 58%); }
+.ink-bleed--contact { background: radial-gradient(ellipse at 84% 12%, rgba(10, 16, 21, 0.62), transparent 54%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-atmosphere__fog,
+  :where(a, button):hover,
+  :where(a, button):focus-visible {
+    animation: none;
+  }
+  .ink-bleed { display: none; }
+  .hero-etching-layer,
+  .edinburgh-fog { will-change: auto; }
+}

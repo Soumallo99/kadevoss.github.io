@@ -12,6 +12,7 @@ import SectionHeading from './SectionHeading.jsx'
 import useHorizontalRail from '../hooks/useHorizontalRail.js'
 import useSectionMotion from '../hooks/useSectionMotion.js'
 import { ArrowRight, ArrowUpRight } from './Icons.jsx'
+import InkBleed from './InkBleed.jsx'
 
 const projects = [
   {
@@ -117,8 +118,8 @@ function ProjectCard({ project, index, railRef, registerCard }) {
     const { left, top, width, height } = cardBounds.current
     const x = (event.clientX - left) / width - 0.5
     const y = (event.clientY - top) / height - 0.5
-    rawX.set(-y * 6)
-    rawY.set(x * 6)
+    rawX.set(-y * 8)
+    rawY.set(x * 8)
   }
 
   function measureCardBounds(event) {
@@ -199,6 +200,7 @@ export default function Work() {
 
   return (
     <section ref={sectionRef} className="section-pad section-work" id="work" aria-labelledby="work-title">
+      <InkBleed className="ink-bleed--work" />
       <motion.div className="section-scroll-decor section-scroll-decor--work" style={{ y: workDrift, rotate: workRotate }} aria-hidden="true" />
       <div className="site-container">
         <div className="work-header">

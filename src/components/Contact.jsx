@@ -5,6 +5,7 @@ import SectionHeading from './SectionHeading.jsx'
 import useSectionMotion from '../hooks/useSectionMotion.js'
 import SocialLinks from './SocialLinks.jsx'
 import { ArrowUpRight, ArrowRight } from './Icons.jsx'
+import InkBleed from './InkBleed.jsx'
 
 // Replace YOUR_FORM_ID with the ID from your Formspree project before launch.
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'
@@ -51,6 +52,7 @@ export default function Contact() {
 
   return (
     <section ref={sectionRef} className="section-pad section-contact" id="contact" aria-labelledby="contact-title">
+      <InkBleed className="ink-bleed--contact" />
       <motion.div className="section-scroll-decor section-scroll-decor--contact" style={{ y: contactDrift, rotate: contactRotate }} aria-hidden="true" />
       <div className="site-container">
         <Reveal variant="clip" y={0}>

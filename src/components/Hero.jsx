@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion'
 import Reveal from './Reveal.jsx'
 import { ArrowDown, ArrowRight } from './Icons.jsx'
+import InkBleed from './InkBleed.jsx'
 
 const heroContainer = {
   hidden: {},
@@ -35,6 +36,15 @@ export default function Hero() {
   const artScrollY = useTransform(smoothScrollProgress, [0, 1], shouldReduceMotion ? [0, 0] : [-8, 58])
   const artScrollScale = useTransform(smoothScrollProgress, [0, 1], shouldReduceMotion ? [1, 1] : [1, 0.9])
   const artScrollRotate = useTransform(smoothScrollProgress, [0, 1], shouldReduceMotion ? [0, 0] : [0, -3])
+  const farLayerY = useTransform(smoothScrollProgress, [0, 1], shouldReduceMotion ? [0, 0] : [0, 18])
+  const farLayerX = useTransform(smoothScrollProgress, [0, 1], shouldReduceMotion ? [0, 0] : [-8, 14])
+  const midLayerY = useTransform(smoothScrollProgress, [0, 1], shouldReduceMotion ? [0, 0] : [0, 38])
+  const midLayerX = useTransform(smoothScrollProgress, [0, 1], shouldReduceMotion ? [0, 0] : [5, -10])
+  const foregroundY = useTransform(smoothScrollProgress, [0, 1], shouldReduceMotion ? [0, 0] : [0, 68])
+  const foregroundX = useTransform(smoothScrollProgress, [0, 1], shouldReduceMotion ? [0, 0] : [0, -12])
+  const foregroundRotate = useTransform(smoothScrollProgress, [0, 1], shouldReduceMotion ? [0, 0] : [0, -2])
+  const mistY = useTransform(smoothScrollProgress, [0, 1], shouldReduceMotion ? [0, 0] : [18, -28])
+  const mistOpacity = useTransform(smoothScrollProgress, [0, 1], shouldReduceMotion ? [0.5, 0.5] : [0.28, 0.68])
   const rawRotateX = useMotionValue(0)
   const rawRotateY = useMotionValue(0)
   const rotateX = useSpring(rawRotateX, { stiffness: 120, damping: 20, mass: 0.7 })
@@ -62,6 +72,7 @@ export default function Hero() {
 
   return (
     <section ref={heroRef} className="hero-section site-container" id="home" aria-labelledby="hero-title">
+      <InkBleed className="ink-bleed--hero" />
       <div className="hero-layout">
         <motion.div
           className="hero-copy"
@@ -107,31 +118,34 @@ export default function Hero() {
             onPointerLeave={resetArtTilt}
           >
           <div className="hero-art-glow" />
+          <motion.div className="hero-etching-layer" style={{ x: farLayerX, y: farLayerY }} aria-hidden="true" />
+          <motion.div className="edinburgh-fog edinburgh-fog--far" style={{ x: farLayerX, y: mistY, opacity: mistOpacity }} aria-hidden="true" />
           <div className="edinburgh-architecture" aria-hidden="true">
-            <span className="edinburgh-moon" />
-            <span className="edinburgh-cloud edinburgh-cloud--one" />
-            <span className="edinburgh-cloud edinburgh-cloud--two" />
-            <div className="edinburgh-ridge edinburgh-ridge--back" />
-            <div className="edinburgh-ridge edinburgh-ridge--front" />
-            <div className="edinburgh-castle">
+            <motion.span className="edinburgh-moon" style={{ x: farLayerX, y: farLayerY }} />
+            <motion.span className="edinburgh-cloud edinburgh-cloud--one" style={{ x: farLayerX, y: farLayerY }} />
+            <motion.span className="edinburgh-cloud edinburgh-cloud--two" style={{ x: farLayerX, y: farLayerY }} />
+            <motion.div className="edinburgh-ridge edinburgh-ridge--back" style={{ x: farLayerX, y: farLayerY }} />
+            <motion.div className="edinburgh-ridge edinburgh-ridge--front" style={{ x: midLayerX, y: midLayerY }} />
+            <motion.div className="edinburgh-castle" style={{ x: foregroundX, y: foregroundY, rotate: foregroundRotate }}>
+
               <span className="castle-crag" />
               <span className="castle-keep" />
               <span className="castle-tower castle-tower--left" />
               <span className="castle-tower castle-tower--right" />
               <span className="castle-flag" />
               <span className="castle-light" />
-            </div>
-            <div className="edinburgh-tenements edinburgh-tenements--far">
+            </motion.div>
+            <motion.div className="edinburgh-tenements edinburgh-tenements--far" style={{ x: midLayerX, y: midLayerY }}>
               <span /><span /><span /><span /><span />
-            </div>
-            <div className="edinburgh-tenements edinburgh-tenements--near">
+            </motion.div>
+            <motion.div className="edinburgh-tenements edinburgh-tenements--near" style={{ x: foregroundX, y: foregroundY }}>
               <span /><span /><span /><span /><span /><span />
-            </div>
-            <div className="edinburgh-street">
+            </motion.div>
+            <motion.div className="edinburgh-street" style={{ x: foregroundX, y: foregroundY, rotate: foregroundRotate }}>
               <span className="street-line street-line--one" />
               <span className="street-line street-line--two" />
               <span className="street-glow" />
-            </div>
+            </motion.div>
           </div>
           <div className="edinburgh-art-note glass-panel">
             <span className="edinburgh-art-note__mark">SD / 01</span>

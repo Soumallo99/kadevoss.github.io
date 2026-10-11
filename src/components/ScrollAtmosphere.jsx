@@ -14,12 +14,18 @@ export default function ScrollAtmosphere() {
   const sandstoneX = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [110, -120])
   const sandstoneY = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [80, -40])
   const mistRotate = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [-4, 7])
+  const fogBackX = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [-55, 90])
+  const fogBackY = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [35, -20])
+  const fogFrontX = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [95, -110])
+  const fogFrontY = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [-25, 65])
 
   return (
     <div className="scroll-atmosphere" aria-hidden="true">
       <motion.span className="scroll-atmosphere__field scroll-atmosphere__field--heather" style={{ x: heatherX, y: heatherY }} />
       <motion.span className="scroll-atmosphere__field scroll-atmosphere__field--sandstone" style={{ x: sandstoneX, y: sandstoneY }} />
+      <motion.span className="scroll-atmosphere__fog scroll-atmosphere__fog--back" style={{ x: fogBackX, y: fogBackY }} />
       <motion.span className="scroll-atmosphere__mist" style={{ rotate: mistRotate }} />
+      <motion.span className="scroll-atmosphere__fog scroll-atmosphere__fog--front" style={{ x: fogFrontX, y: fogFrontY }} />
     </div>
   )
 }

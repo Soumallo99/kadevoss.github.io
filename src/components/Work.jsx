@@ -204,7 +204,7 @@ export default function Work() {
       <motion.div className="section-scroll-decor section-scroll-decor--work" style={{ y: workDrift, rotate: workRotate }} aria-hidden="true" />
       <div className="site-container">
         <div className="work-header">
-          <Reveal variant="clip" y={0}>
+          <Reveal variant="clip" y={50}>
             <SectionHeading
               id="work-title"
               eyebrow="Field notes / 03"

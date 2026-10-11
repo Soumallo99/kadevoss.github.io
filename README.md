@@ -1,6 +1,6 @@
 # Soumallo Deb — Developer Portfolio
 
-A responsive, Edinburgh-inspired portfolio site built with React, Vite, Tailwind CSS, and Framer Motion. Its visual language draws from Old Town closes, Castle Rock silhouettes, sandstone warmth, Gothic spires, and the ordered geometry of the New Town; scroll-linked atmosphere, architecture-shaped motion, and reduced-motion preferences are respected. It is a fully static single-page site: there are no server-side routes, backend API routes, or database. The contact form submits from the browser to Formspree.
+A responsive, Edinburgh-inspired portfolio site built with React, Vite, Tailwind CSS, Framer Motion, GSAP, and Three.js. Its visual language draws from Old Town closes, Castle Rock silhouettes, sandstone warmth, Gothic spires, and the ordered geometry of the New Town; scroll-linked atmosphere, architecture-shaped motion, and reduced-motion preferences are respected. It is a fully static single-page site: there are no server-side routes, backend API routes, or database. The contact form opens a direct email fallback immediately and can use Formspree for background delivery once connected.
 
 ## Run locally
 
@@ -40,7 +40,7 @@ If you later deploy this as a project site under `https://<username>.github.io/<
 2. In `src/components/Contact.jsx`, replace `YOUR_FORM_ID` in `FORMSPREE_ENDPOINT` with that ID, keeping the `https://formspree.io/f/` prefix.
 3. Submit a test message from the deployed page and confirm it arrives in the inbox configured in Formspree.
 
-The current endpoint is intentionally a placeholder. Until it is replaced, submitting the form displays a setup message and does not send data anywhere.
+The current endpoint is intentionally a placeholder. Until it is replaced, submitting the form opens the visitor’s email app with the enquiry addressed to `debsoumallo@gmail.com`; the direct email link remains available if no email app is configured. Replace `YOUR_FORM_ID` when you want background delivery through Formspree.
 
 ### Replace portfolio placeholders
 

@@ -69,6 +69,48 @@ const fragmentShader = `
   }
 `
 
+const PARTICLE_COUNT = 110
+
+function createParticleField(reducedMotion) {
+  if (reducedMotion) return null
+
+  const positions = new Float32Array(PARTICLE_COUNT * 3)
+  const particles = []
+
+  for (let index = 0; index < PARTICLE_COUNT; index += 1) {
+    const offset = index * 3
+    positions[offset] = THREE.MathUtils.randFloat(-1.04, 1.04)
+    positions[offset + 1] = THREE.MathUtils.randFloat(-1.06, 1.06)
+    positions[offset + 2] = 0
+    particles.push({
+      drift: THREE.MathUtils.randFloat(0.000018, 0.000075),
+      sway: THREE.MathUtils.randFloat(0.00006, 0.00024),
+      phase: Math.random() * Math.PI * 2,
+      vx: 0,
+      vy: 0,
+    })
+  }
+
+  const geometry = new THREE.BufferGeometry()
+  const positionAttribute = new THREE.BufferAttribute(positions, 3)
+  geometry.setAttribute('position', positionAttribute)
+
+  const material = new THREE.PointsMaterial({
+    color: 0xe1bd7e,
+    size: 2.8,
+    sizeAttenuation: false,
+    transparent: true,
+    opacity: 0.7,
+    blending: THREE.AdditiveBlending,
+    depthTest: false,
+    depthWrite: false,
+  })
+  const points = new THREE.Points(geometry, material)
+  points.renderOrder = 1
+
+  return { geometry, material, points, positionAttribute, positions, particles }
+}
+
 export default function WebGLFog() {
   const canvasRef = useRef(null)
   const shouldReduceMotion = useReducedMotion()
@@ -105,11 +147,16 @@ export default function WebGLFog() {
       transparent: true,
     })
     const plane = new THREE.Mesh(geometry, material)
+    plane.renderOrder = 0
     scene.add(plane)
+
+    const particleField = createParticleField(shouldReduceMotion)
+    if (particleField) scene.add(particleField.points)
 
     const targetMouse = new THREE.Vector2(0, 0)
     const currentMouse = new THREE.Vector2(0, 0)
     let animationFrame = 0
+    let lastTime = 0
     let disposed = false
 
     function resize() {
@@ -127,18 +174,71 @@ export default function WebGLFog() {
       )
     }
 
+    function updateParticles(time) {
+      if (!particleField) return
+
+      const elapsed = time * 0.001
+      const delta = Math.min(lastTime ? time - lastTime : 16, 48)
+      const step = delta / 16
+      const { particles, positions, positionAttribute } = particleField
+
+      particles.forEach((particle, index) => {
+        const offset = index * 3
+        let x = positions[offset]
+        let y = positions[offset + 1]
+        const dx = x - targetMouse.x
+        const dy = y - targetMouse.y
+        const distance = Math.sqrt(dx * dx + dy * dy)
+
+        // A soft repulsion keeps the motes lively without pulling focus from the cards.
+        if (distance > 0.001 && distance < 0.28) {
+          const force = ((0.28 - distance) / 0.28) * 0.00042 * step
+          particle.vx += (dx / distance) * force
+          particle.vy += (dy / distance) * force
+        }
+
+        particle.vx *= 0.965
+        particle.vy *= 0.965
+        x += particle.vx + Math.sin(elapsed * 0.42 + particle.phase) * particle.sway * step
+        y += particle.vy + particle.drift * step
+
+        if (y > 1.08) y = -1.08
+        if (x > 1.08) x = -1.08
+        if (x < -1.08) x = 1.08
+
+        positions[offset] = x
+        positions[offset + 1] = y
+      })
+
+      positionAttribute.needsUpdate = true
+    }
+
     function render(time) {
       if (disposed) return
       currentMouse.lerp(targetMouse, shouldReduceMotion ? 1 : 0.035)
       material.uniforms.uMouse.value.copy(currentMouse)
       material.uniforms.uTime.value = shouldReduceMotion ? 0 : time * 0.001
+      updateParticles(time)
       renderer.render(scene, camera)
-      if (!shouldReduceMotion) animationFrame = window.requestAnimationFrame(render)
+      lastTime = time
+      if (!shouldReduceMotion && !document.hidden) animationFrame = window.requestAnimationFrame(render)
+    }
+
+    function handleVisibilityChange() {
+      if (!document.hidden && !shouldReduceMotion && !animationFrame) {
+        lastTime = performance.now()
+        animationFrame = window.requestAnimationFrame(render)
+      }
+      if (document.hidden && animationFrame) {
+        window.cancelAnimationFrame(animationFrame)
+        animationFrame = 0
+      }
     }
 
     resize()
     window.addEventListener('resize', resize, { passive: true })
     window.addEventListener('pointermove', handlePointerMove, { passive: true })
+    document.addEventListener('visibilitychange', handleVisibilityChange)
     render(0)
 
     return () => {
@@ -146,8 +246,11 @@ export default function WebGLFog() {
       window.cancelAnimationFrame(animationFrame)
       window.removeEventListener('resize', resize)
       window.removeEventListener('pointermove', handlePointerMove)
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
       geometry.dispose()
       material.dispose()
+      particleField?.geometry.dispose()
+      particleField?.material.dispose()
       renderer.dispose()
     }
   }, [shouldReduceMotion])

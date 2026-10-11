@@ -3160,3 +3160,91 @@ button,
   text-decoration-color: rgba(225, 189, 126, 0.5);
   text-underline-offset: 3px;
 }
+
+/* Negative-space engine: blueprint lines, outlined type, and dust share one quiet plane. */
+.blueprint-atmosphere {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0.05;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+.blueprint-atmosphere__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.blueprint-atmosphere__svg path {
+  fill: none;
+  stroke: #e1bd7e;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.1;
+  vector-effect: non-scaling-stroke;
+}
+.blueprint-atmosphere__grid { opacity: 0.44; }
+.blueprint-atmosphere__architecture { opacity: 0.94; }
+.blueprint-atmosphere__nodes circle {
+  fill: #e1bd7e;
+  stroke: #f0d39b;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.background-marquee {
+  position: fixed;
+  z-index: 0;
+  top: 40%;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+  transform: translateY(-50%);
+  opacity: 0.05;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+.background-marquee .marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: background-marquee-travel 58s linear infinite;
+  will-change: transform;
+}
+.background-marquee .marquee-track span {
+  display: block;
+  flex: 0 0 auto;
+  padding-right: 0.08em;
+  color: transparent;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 15vw;
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 0.82;
+  -webkit-text-stroke: 1px #e8e3d3;
+  text-stroke: 1px #e8e3d3;
+  white-space: nowrap;
+}
+@keyframes background-marquee-travel {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+/* GSAP scroll reveals keep the negative space visible until the work arrives. */
+.gsap-reveal {
+  will-change: transform, opacity;
+}
+
+@media (max-width: 700px) {
+  .blueprint-atmosphere { opacity: 0.04; }
+  .background-marquee { top: 45%; }
+  .background-marquee .marquee-track span { font-size: 24vw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blueprint-atmosphere { opacity: 0.035; }
+  .background-marquee .marquee-track { animation: none; }
+  .gsap-reveal { will-change: auto; }
+}

@@ -138,7 +138,7 @@ export default function Services() {
       <motion.div className="section-scroll-decor section-scroll-decor--services" style={{ y: serviceDrift, rotate: serviceRotate, opacity: serviceGlow }} aria-hidden="true" />
       <div className="site-container">
         <div className="services-header">
-          <Reveal variant="clip" y={0}>
+          <Reveal variant="clip" y={50}>
             <SectionHeading
               id="services-title"
               eyebrow="The studio / 01"

@@ -9,6 +9,8 @@ import About from './components/About.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 import ScrollAtmosphere from './components/ScrollAtmosphere.jsx'
+import BlueprintAtmosphere from './components/BlueprintAtmosphere.jsx'
+import NegativeSpaceMarquee from './components/NegativeSpaceMarquee.jsx'
 import ArtisticCursor from './components/ArtisticCursor.jsx'
 
 function DeferredWebGLFog() {
@@ -39,6 +41,8 @@ export default function App() {
     <>
       <a className="skip-link" href="#main-content">Skip to content</a>
       <DeferredWebGLFog />
+      <BlueprintAtmosphere />
+      <NegativeSpaceMarquee />
       <ScrollAtmosphere />
       <ArtisticCursor />
       <Nav />

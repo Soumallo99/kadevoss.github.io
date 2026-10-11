@@ -1,40 +1,62 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { useLayoutEffect, useRef } from 'react'
+import { useReducedMotion } from 'framer-motion'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-const easeOut = [0.19, 1, 0.22, 1]
+gsap.registerPlugin(ScrollTrigger)
 
 export default function Reveal({
   children,
   className = '',
   delay = 0,
-  y = 24,
+  y = 50,
   amount = 0.18,
   variant = 'rise',
-  duration = 0.72,
+  duration = 1.2,
 }) {
+  const revealRef = useRef(null)
   const shouldReduceMotion = useReducedMotion()
-  const hidden = {
-    rise: { opacity: 0, y, scale: 0.99 },
-    fade: { opacity: 0 },
-    zoom: { opacity: 0, y: y * 0.45, scale: 0.94 },
-    clip: { opacity: 1, clipPath: 'inset(0 0 100% 0)' },
-  }[variant]
-  const visible = {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    ...(variant === 'clip' ? { clipPath: 'inset(0 0 0% 0)' } : {}),
-    transition: { duration, delay, ease: easeOut },
-  }
+
+  useLayoutEffect(() => {
+    if (shouldReduceMotion || !revealRef.current) return undefined
+
+    const element = revealRef.current
+    const start = `top ${Math.round((1 - amount) * 100)}%`
+    const isClip = variant === 'clip'
+    const hidden = {
+      autoAlpha: isClip ? 1 : 0,
+      y: isClip ? y : y,
+      scale: variant === 'zoom' ? 0.97 : 1,
+      clipPath: isClip ? 'inset(0 0 100% 0)' : 'inset(0 0 0% 0)',
+    }
+    const visible = {
+      autoAlpha: 1,
+      y: 0,
+      scale: 1,
+      clipPath: 'inset(0 0 0% 0)',
+      duration,
+      delay,
+      ease: 'power2.out',
+      overwrite: 'auto',
+      clearProps: 'willChange',
+      scrollTrigger: {
+        trigger: element,
+        start,
+        once: true,
+      },
+    }
+
+    const context = gsap.context(() => {
+      gsap.set(element, { willChange: 'transform, opacity' })
+      gsap.fromTo(element, hidden, visible)
+    }, revealRef)
+
+    return () => context.revert()
+  }, [amount, delay, duration, shouldReduceMotion, variant, y])
 
   return (
-    <motion.div
-      className={className}
-      initial={shouldReduceMotion ? false : 'hidden'}
-      whileInView={shouldReduceMotion ? undefined : 'visible'}
-      viewport={{ once: true, amount }}
-      variants={{ hidden: hidden ?? {}, visible }}
-    >
+    <div ref={revealRef} className={`${className}${className ? ' ' : ''}gsap-reveal`}>
       {children}
-    </motion.div>
+    </div>
   )
 }

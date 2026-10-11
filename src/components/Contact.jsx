@@ -61,7 +61,7 @@ export default function Contact() {
       <InkBleed className="ink-bleed--contact" />
       <motion.div className="section-scroll-decor section-scroll-decor--contact" style={{ y: contactDrift, rotate: contactRotate }} aria-hidden="true" />
       <div className="site-container">
-        <Reveal variant="clip" y={0}>
+        <Reveal variant="clip" y={50}>
           <SectionHeading
             id="contact-title"
             eyebrow="Leave a note / 05"

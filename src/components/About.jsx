@@ -21,7 +21,11 @@ export default function About() {
       <motion.div className="section-scroll-decor section-scroll-decor--about" style={{ y: aboutDrift, scale: aboutScale }} aria-hidden="true" />
       <div className="site-container about-layout">
         <Reveal className="about-heading">
-          <SectionHeading id="about-title" eyebrow="The maker / 04" title="About the practice" />
+          <SectionHeading
+            id="about-title"
+            eyebrow="The maker / 04"
+            title={<>About the<br /><span className="about-title-line">practice</span></>}
+          />
           <div className="about-monogram glass-panel" aria-hidden="true">
             <span>S</span><span>D</span><i />
             <small>MADE<br />WITH INTENT</small>

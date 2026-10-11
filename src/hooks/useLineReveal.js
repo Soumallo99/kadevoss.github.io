@@ -16,6 +16,7 @@ export default function useLineReveal(targetRef, { start = 'top 82%', delay = 0 
     const context = gsap.context(() => {
       split = SplitText.create(targetRef.current, {
         type: 'lines',
+        tag: 'span',
         linesClass: 'about-copy-line',
         mask: 'lines',
       })

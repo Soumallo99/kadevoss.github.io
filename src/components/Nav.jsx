@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { motion, useReducedMotion, useScroll, useSpring } from 'framer-motion'
 import { ArrowUpRight, MenuIcon } from './Icons.jsx'
 
 const links = [
@@ -11,10 +10,6 @@ const links = [
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const shouldReduceMotion = useReducedMotion()
-  const { scrollYProgress } = useScroll()
-  const smoothProgress = useSpring(scrollYProgress, { stiffness: 110, damping: 28, restDelta: 0.001 })
-  const progress = shouldReduceMotion ? scrollYProgress : smoothProgress
 
   function closeMenu() {
     setMenuOpen(false)
@@ -22,7 +17,6 @@ export default function Nav() {
 
   return (
     <header className="site-header">
-      <motion.div className="page-scroll-progress" style={{ scaleX: progress }} aria-hidden="true" />
       <nav className="site-container nav-shell" aria-label="Main navigation">
         <a className="brand" href="#home" onClick={closeMenu} aria-label="Soumallo Deb, home">
           <span className="brand-mark">S<span>D</span><i>.</i></span>

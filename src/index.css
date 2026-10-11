@@ -167,23 +167,10 @@ svg {
   position: sticky;
   z-index: 50;
   top: 0;
-  border-bottom: 1px solid rgba(225, 242, 220, 0.07);
+  border-bottom: 0;
   background: rgba(8, 11, 9, 0.82);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-}
-
-.page-scroll-progress {
-  position: absolute;
-  z-index: 2;
-  right: 0;
-  bottom: -1px;
-  left: 0;
-  height: 2px;
-  transform-origin: left center;
-  background: linear-gradient(90deg, rgba(197, 243, 106, 0.7), var(--accent));
-  box-shadow: 0 0 12px rgba(197, 243, 106, 0.45);
-  pointer-events: none;
 }
 
 .nav-shell {
@@ -853,8 +840,8 @@ svg {
 .capability-marquee {
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(222, 238, 217, 0.1);
-  border-bottom: 1px solid rgba(222, 238, 217, 0.1);
+  border-top: 0;
+  border-bottom: 0;
   background: linear-gradient(90deg, rgba(116, 246, 208, 0.035), rgba(192, 143, 255, 0.045), rgba(197, 243, 106, 0.045));
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
@@ -877,7 +864,7 @@ svg {
 .section-process,
 .section-work,
 .section-about,
-.section-contact { border-top: 1px solid rgba(216, 234, 210, 0.075); }
+.section-contact { border-top: 0; }
 
 .section-heading { max-width: 680px; }
 .section-heading .eyebrow { margin: 0 0 18px; }
@@ -1317,7 +1304,7 @@ svg {
 .form-status--error { color: #f0a89b; }
 
 /* Footer */
-.site-footer { border-top: 1px solid rgba(216, 234, 210, 0.09); background: rgba(6, 9, 7, 0.66); }
+.site-footer { border-top: 0; background: rgba(6, 9, 7, 0.66); }
 .footer-inner { display: flex; min-height: 90px; align-items: center; gap: 26px; }
 .footer-brand { color: #eff4eb; font-size: 14px; font-weight: 700; letter-spacing: -0.12em; }
 .footer-brand span { color: var(--accent); }
@@ -1691,12 +1678,8 @@ body::after {
 ::selection { color: #171216; background: var(--accent); }
 
 .site-header {
-  border-bottom-color: rgba(225, 205, 184, 0.13);
+  border-bottom: 0;
   background: rgba(18, 17, 20, 0.86);
-}
-.page-scroll-progress {
-  background: linear-gradient(90deg, var(--edinburgh-heather), var(--accent), var(--accent-bright));
-  box-shadow: 0 0 16px rgba(215, 166, 110, 0.42);
 }
 .brand-mark {
   border-color: rgba(215, 166, 110, 0.42);
@@ -1850,7 +1833,7 @@ body::after {
 .edinburgh-art-note strong { color: #eee1d5; font-family: Georgia, 'Times New Roman', serif; font-size: 15px; font-weight: 500; line-height: 1.05; }
 .edinburgh-art-note small { color: #9d929a; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 6px; letter-spacing: 0.13em; }
 
-.capability-marquee { border-color: rgba(225, 205, 184, 0.16); background: linear-gradient(90deg, rgba(155, 134, 170, 0.1), rgba(215, 166, 110, 0.06), rgba(126, 140, 115, 0.08)); }
+.capability-marquee { background: linear-gradient(90deg, rgba(155, 134, 170, 0.1), rgba(215, 166, 110, 0.06), rgba(126, 140, 115, 0.08)); }
 .marquee-item { color: rgba(235, 222, 211, 0.8); }
 .marquee-spark { color: var(--accent); }
 
@@ -1858,7 +1841,7 @@ body::after {
 .section-process,
 .section-work,
 .section-about,
-.section-contact { border-top-color: rgba(225, 205, 184, 0.13); }
+.section-contact { border-top: 0; }
 .section-heading h2 { color: #f1e9e4; }
 .section-description { color: #aaa0a4; }
 .section-services { background: radial-gradient(ellipse at 10% 8%, rgba(155, 134, 170, 0.12), transparent 44%), radial-gradient(ellipse at 90% 82%, rgba(215, 166, 110, 0.08), transparent 39%), linear-gradient(180deg, rgba(34, 29, 36, 0.5), rgba(18, 17, 20, 0.12)); }
@@ -1969,7 +1952,7 @@ body::after {
 .form-field input, .form-field textarea { border-color: rgba(225, 205, 184, 0.17); background: rgba(12, 10, 14, 0.38); color: #f1e9e4; }
 .form-field input:focus, .form-field textarea:focus { border-color: rgba(215, 166, 110, 0.64); background: rgba(12, 10, 14, 0.64); }
 .form-note { color: #978b91; }
-.site-footer { border-top-color: rgba(225, 205, 184, 0.14); background: rgba(12, 10, 14, 0.72); }
+.site-footer { border-top: 0; background: rgba(12, 10, 14, 0.72); }
 .footer-brand { color: #f1e7df; }
 .footer-brand span { color: var(--accent); }
 .footer-inner > p { color: #92868e; }

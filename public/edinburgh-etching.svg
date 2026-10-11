@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Etched Edinburgh skyline</title>
+  <desc id="desc">A monochrome engraved view of Castle Rock, Gothic spires, tenements, and a narrow cobbled close.</desc>
+  <defs>
+    <pattern id="hatch" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(24)">
+      <path d="M0 0V12M6 0V12" stroke="#d8c19f" stroke-width="1" opacity=".28"/>
+    </pattern>
+    <pattern id="crosshatch" width="14" height="14" patternUnits="userSpaceOnUse">
+      <path d="M-3 3L3 -3M0 14L14 0M11 17L17 11" stroke="#d8c19f" stroke-width=".8" opacity=".22"/>
+      <path d="M-3 11L3 17M0 0L14 14M11 -3L17 3" stroke="#d8c19f" stroke-width=".8" opacity=".16"/>
+    </pattern>
+    <linearGradient id="fade" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#e0caa9" stop-opacity=".82"/>
+      <stop offset="1" stop-color="#e0caa9" stop-opacity=".22"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="#d8c19f" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M55 590C170 558 222 567 314 542s142-22 226-6 153 10 224-15 153-25 239-4 116 14 162 0" stroke-width="2" opacity=".42"/>
+    <path d="M30 624C178 592 262 607 350 578s142-18 224 1 147 18 238-8 177-29 334 2" stroke-width="1" opacity=".3"/>
+    <path d="M65 653C190 624 278 640 370 613s155-13 230 5 168 17 265-8 170-27 267-4" stroke-width="1" opacity=".2"/>
+    <path d="M70 135C150 98 240 96 323 126s128 24 212-5 143-35 231-2 158 37 255-3 163-25 196-9" stroke-width="2" opacity=".18"/>
+    <path d="M90 157c75-21 136-19 205 6m18 0c69 18 122 16 184-10m27 2c78-27 132-25 199 2m26 4c78 25 137 20 196-7" stroke-width="1" opacity=".26"/>
+    <path d="M110 185c62-12 114-9 169 8m29 4c58 12 107 9 160-11m29-3c69-18 118-17 175 3m32 7c63 15 116 9 165-9" stroke-width="1" opacity=".18"/>
+  </g>
+  <g stroke="#e0caa9" stroke-linejoin="round">
+    <path d="M388 538V318l35-42 18 42v-75l22-43 24 43v-62l17-34 19 34v-25l19-40 21 40v23l24-45 22 45v61l28-49 24 50v75l26-39 30 42v202Z" fill="url(#hatch)" stroke-width="2" opacity=".78"/>
+    <path d="M476 398l8-64 9-19 10 19 8 64m34 0l9-78 10-20 11 20 8 78m45 0l9-58 10-22 9 22 9 58" fill="none" stroke-width="2" opacity=".7"/>
+    <path d="M399 459h215M405 491h219M418 524h217" fill="none" stroke-width="1" opacity=".52"/>
+    <path d="M430 311v-36l11-22 10 22v36m41 0v-48l11-22 11 22v48m61 0v-40l11-24 11 24v40m51 0v-40l11-22 11 22v40" fill="none" stroke-width="1" opacity=".55"/>
+  </g>
+  <g fill="url(#crosshatch)" stroke="#d8c19f" stroke-width="1.5" opacity=".72">
+    <path d="M20 570V378l33-31 31 31v-92l31-32 31 32v-55l29-33 31 33v64l32-33 30 33v127l34-41 32 41v173Z"/>
+    <path d="M874 570V410l31-33 31 33v-112l31-34 31 34v66l28-36 28 36v-88l30-32 31 32v104l29-31 29 31v190Z"/>
+  </g>
+  <g fill="none" stroke="#e1c9a7" stroke-width="2" opacity=".72">
+    <path d="M44 406h209M45 447h222M45 490h215M899 443h258M900 484h255M900 526h252"/>
+    <path d="M65 386v-25m33 25v-58m36 58v-79m42 79v-48m38 48v-29m685 44v-56m42 56v-83m48 83v-43m38 43v-69m42 69v-37"/>
+  </g>
+  <g fill="none" stroke="#e0caa9" stroke-width="1" opacity=".7">
+    <path d="M76 408h12v24H76zm33-21h12v45h-12zm35-28h12v52h-12zm42 20h12v34h-12zm40 24h12v25h-12z"/>
+    <path d="M916 445h13v32h-13zm42-28h13v61h-13zm48 18h13v43h-13zm39-23h13v49h-13zm43 29h13v34h-13z"/>
+    <path d="M504 430h18v23h-18zm45-12h18v35h-18zm51 12h18v23h-18zm51-18h18v41h-18z"/>
+  </g>
+  <g fill="none" stroke="#e0caa9" stroke-linecap="round">
+    <path d="M188 760L504 513M1060 760L702 513" stroke-width="3" opacity=".72"/>
+    <path d="M273 760L535 533M960 760L674 533" stroke-width="1.5" opacity=".46"/>
+    <path d="M363 760L570 553M866 760L641 553" stroke-width="1" opacity=".35"/>
+    <path d="M42 704C255 672 408 683 587 664s354-5 571 38" stroke-width="2" opacity=".55"/>
+    <path d="M83 724c182-25 332-20 500-9m51-2c157-12 322-3 484 28" stroke-width="1" opacity=".34"/>
+  </g>
+  <g fill="#e0caa9" opacity=".75">
+    <circle cx="548" cy="361" r="3"/><circle cx="578" cy="348" r="2"/><circle cx="618" cy="370" r="3"/>
+    <circle cx="159" cy="411" r="2"/><circle cx="1020" cy="444" r="2"/><circle cx="1088" cy="465" r="2"/>
+  </g>
+  <path d="M24 34H1176M24 726H1176M24 34V726M1176 34V726" fill="none" stroke="#d8c19f" stroke-width="1" opacity=".28"/>
+  <path d="M36 48H1164M36 712H1164M36 48V712M1164 48V712" fill="none" stroke="#d8c19f" stroke-width="1" opacity=".15"/>
+  <path d="M32 374h92m952 0h92" stroke="#d8c19f" stroke-width="1" opacity=".28"/>
+  <path d="M584 78h32M600 62v32" stroke="#e0caa9" stroke-width="1" opacity=".5"/>
+</svg>

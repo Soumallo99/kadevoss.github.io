@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0v40" stroke="#d7a66e" stroke-opacity=".075"/>
+    </pattern>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(450 285 -240 380 875 315)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d7a66e" stop-opacity=".19"/>
+      <stop offset="1" stop-color="#d7a66e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path fill="#121114" d="M0 0h1200v630H0z"/>
+  <path fill="url(#grid)" d="M0 0h1200v630H0z"/>
+  <path fill="url(#glow)" d="M0 0h1200v630H0z"/>
+  <rect x="82" y="77" width="52" height="52" rx="16" fill="#242126" stroke="#d7a66e" stroke-opacity=".35"/>
+  <text x="94" y="112" fill="#f4ece5" font-family="Arial, sans-serif" font-size="21" font-weight="700" letter-spacing="-1">SD</text>
+  <circle cx="124" cy="120" r="3" fill="#d7a66e"/>
+  <text x="154" y="109" fill="#e4d8d1" font-family="Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="2">SOUMALLO DEB</text>
+  <text x="82" y="285" fill="#f4ece5" font-family="Arial, sans-serif" font-size="72" font-weight="700" letter-spacing="-3">Built from</text>
+  <text x="82" y="374" fill="#d7a66e" font-family="Arial, sans-serif" font-size="72" font-weight="700" letter-spacing="-3">stone &amp; story.</text>
+  <text x="86" y="441" fill="#b1a4aa" font-family="Arial, sans-serif" font-size="23">Art direction. Digital atmosphere. Made to be felt.</text>
+  <rect x="86" y="503" width="11" height="11" rx="5.5" fill="#d7a66e"/>
+  <text x="111" y="514" fill="#e4d8d1" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2">ART DIRECTION / DIGITAL EXPERIENCES / HUMAN-LED CRAFT</text>
+</svg>

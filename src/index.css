@@ -3811,3 +3811,35 @@ button,
   .project-card .mock-chat,
   .project-card .project-art-orbit { transform: none !important; translate: none !important; }
 }
+
+/* One explicit foreground plane: atmosphere stays behind, all authored UI stays above it. */
+.site-content-layer {
+  position: relative;
+  z-index: 10;
+  isolation: isolate;
+}
+.site-content-layer main,
+.site-content-layer .site-footer {
+  position: relative;
+  z-index: 10;
+}
+.site-content-layer .site-header {
+  z-index: 50;
+}
+
+/* The etching is the background only; project artwork must remain solid and legible. */
+.project-art {
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+.project-preview-float,
+.project-card .mock-studio,
+.project-card .mock-dashboard,
+.project-card .mock-chat {
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+.project-preview-float {
+  filter: drop-shadow(0 30px 34px rgba(3, 5, 7, 0.58)) !important;
+}

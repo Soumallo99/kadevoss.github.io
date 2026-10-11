@@ -45,17 +45,19 @@ export default function App() {
       <NegativeSpaceMarquee />
       <ScrollAtmosphere />
       <ArtisticCursor />
-      <Nav />
-      <main id="main-content">
-        <Hero />
-        <CapabilitiesMarquee />
-        <Services />
-        <Process />
-        <Work />
-        <About />
-        <Contact />
-      </main>
-      <Footer />
+      <div className="site-content-layer">
+        <Nav />
+        <main id="main-content">
+          <Hero />
+          <CapabilitiesMarquee />
+          <Services />
+          <Process />
+          <Work />
+          <About />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </>
   )
 }

@@ -3404,3 +3404,71 @@ button,
   .contact-form.floating-card { transform: none; }
   .about-copy-line { will-change: auto; }
 }
+
+/* Let the artwork breathe beyond each card instead of clipping it into a tile. */
+.service-card,
+.project-card {
+  position: relative;
+  overflow: visible;
+  z-index: 2;
+}
+.service-card-link {
+  position: relative;
+  z-index: 1;
+}
+.service-card-link:hover,
+.service-card-link:focus-visible,
+.project-reveal:hover,
+.project-reveal:focus-within {
+  z-index: 24;
+}
+.service-card-link:hover .service-card,
+.service-card-link:focus-visible .service-card,
+.project-reveal:hover .project-card,
+.project-reveal:focus-within .project-card {
+  z-index: 24;
+}
+
+/* A smaller, better-balanced drop cap keeps the first line and its wrap calm. */
+.about-statement::first-letter {
+  float: left;
+  margin: 0.1em 0.22em 0.08em 0;
+  font-size: 4.2em;
+  line-height: 0.72;
+}
+
+/* About copy and the form read as light on the atmosphere, not framed boxes. */
+.about-content.floating-card,
+.contact-form.floating-card {
+  border: 0;
+  border-radius: 8px;
+  background: rgba(42, 44, 46, 0.52);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34), 0 0 66px rgba(194, 163, 112, 0.08);
+}
+
+@keyframes section-container-float {
+  0%, 100% { transform: translateY(-10px); }
+  50% { transform: translateY(-18px); }
+}
+.about-content.floating-card {
+  animation: section-container-float 4s ease-in-out infinite;
+}
+.contact-card.floating-card {
+  animation: section-container-float 4s ease-in-out -0.55s infinite;
+}
+.contact-form.floating-card {
+  animation: section-container-float 4s ease-in-out -1.1s infinite;
+}
+
+@media (max-width: 700px) {
+  .about-content.floating-card,
+  .contact-form.floating-card { border-radius: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-content.floating-card,
+  .contact-card.floating-card,
+  .contact-form.floating-card {
+    animation: none;
+  }
+}

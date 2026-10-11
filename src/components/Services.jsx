@@ -93,13 +93,13 @@ export default function Services() {
           <Reveal variant="clip" y={0}>
             <SectionHeading
               id="services-title"
-              eyebrow="Services / 01"
-              title="What I Build"
-              description="Purpose-built digital experiences, from the first page to the systems behind it. Scroll to explore the full range."
+              eyebrow="The studio / 01"
+              title="From close to square"
+              description="Digital places with a sense of atmosphere — from a first sketch to the systems quietly holding it together. Scroll to explore the full range."
             />
           </Reveal>
           <div className="service-rail-controls" role="group" aria-label="Service gallery controls">
-            <p className="service-scroll-hint" id="service-scroll-hint"><span aria-hidden="true">↕</span> Scroll over cards · swipe on touch</p>
+            <p className="service-scroll-hint" id="service-scroll-hint"><span aria-hidden="true">↕</span> Scroll over the facades · swipe on touch</p>
             <div className="service-arrow-controls">
               <button type="button" onClick={() => scrollToIndex(activeIndex - 1)} disabled={activeIndex === 0} aria-label="Show previous service" aria-controls="services-rail">
                 <ArrowRight className="service-rail-arrow service-rail-arrow--back" />

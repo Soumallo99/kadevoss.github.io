@@ -195,13 +195,13 @@ export default function Work() {
           <Reveal variant="clip" y={0}>
             <SectionHeading
               id="work-title"
-              eyebrow="Selected concepts / 03"
-              title="Ideas, built in motion."
-              description="A set of original interface concepts designed to feel tactile, clear, and alive. Scroll or swipe through the work—without taking control away from you."
+              eyebrow="Field notes / 03"
+              title="Ideas in stone & motion."
+              description="A small collection of original concepts, shaped by old facades, new rituals, and the feeling of finding a hidden street. Scroll or swipe through the work."
             />
           </Reveal>
           <div className="project-controls" role="group" aria-label="Project gallery controls">
-            <p className="project-scroll-hint" id="project-scroll-hint"><span aria-hidden="true">↕</span> Scroll over the gallery · swipe on touch</p>
+            <p className="project-scroll-hint" id="project-scroll-hint"><span aria-hidden="true">↕</span> Scroll through the city · swipe on touch</p>
             <div className="project-control-row">
               <span className="project-current" aria-live="polite"><strong>{projects[activeIndex].number}</strong><span> / 0{projects.length}</span></span>
               <div className="project-arrow-controls">

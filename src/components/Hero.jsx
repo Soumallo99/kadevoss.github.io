@@ -64,31 +64,31 @@ export default function Hero() {
           variants={shouldReduceMotion ? noMotionVariants : heroContainer}
         >
           <motion.p variants={shouldReduceMotion ? noMotionVariants : heroItem} className="eyebrow hero-eyebrow">
-            <span className="eyebrow-mark" />AI-accelerated development · built for the real world
+            <span className="eyebrow-mark" />EDINBURGH / OLD TOWN × NEW TOWN
           </motion.p>
           <h1 id="hero-title">
             <span className="hero-title-mask">
-              <motion.span className="hero-title-line" variants={shouldReduceMotion ? noMotionVariants : heroLine}>AI-Powered</motion.span>
+              <motion.span className="hero-title-line" variants={shouldReduceMotion ? noMotionVariants : heroLine}>Built from</motion.span>
             </span>
             <span className="hero-title-mask hero-title-mask--accent">
-              <motion.span className="hero-title-line hero-title-line--accent" variants={shouldReduceMotion ? noMotionVariants : heroLine}>Web Developer</motion.span>
+              <motion.span className="hero-title-line hero-title-line--accent" variants={shouldReduceMotion ? noMotionVariants : heroLine}>stone & story.</motion.span>
             </span>
           </h1>
           <motion.p variants={shouldReduceMotion ? noMotionVariants : heroItem} className="hero-lede">
-            I build fast, production-ready websites and web apps using an AI-assisted development pipeline — real code, version-controlled, fully owned by you.
+            I make digital spaces with the drama of an Edinburgh skyline: tactile, atmospheric, and made to be explored. Art direction, web experiences, and intelligent systems — crafted with care.
           </motion.p>
           <motion.div variants={shouldReduceMotion ? noMotionVariants : heroItem} className="hero-actions">
             <a className="button button-primary" href="#work">
-              View Projects <ArrowRight className="icon-18" />
+              View the work <ArrowRight className="icon-18" />
             </a>
             <a className="button button-secondary" href="#contact">
-              Get a Quote <ArrowDown className="icon-16" />
+              Start a conversation <ArrowDown className="icon-16" />
             </a>
           </motion.div>
           <motion.div variants={shouldReduceMotion ? noMotionVariants : heroItem} className="hero-proof" aria-label="How projects are delivered">
-            <span><i />Real code</span>
-            <span><i />GitHub versioned</span>
-            <span><i />Yours to own</span>
+            <span><i />Original concepts</span>
+            <span><i />Human-led craft</span>
+            <span><i />Made to explore</span>
           </motion.div>
         </motion.div>
 
@@ -101,6 +101,37 @@ export default function Hero() {
             onPointerLeave={resetArtTilt}
           >
           <div className="hero-art-glow" />
+          <div className="edinburgh-architecture" aria-hidden="true">
+            <span className="edinburgh-moon" />
+            <span className="edinburgh-cloud edinburgh-cloud--one" />
+            <span className="edinburgh-cloud edinburgh-cloud--two" />
+            <div className="edinburgh-ridge edinburgh-ridge--back" />
+            <div className="edinburgh-ridge edinburgh-ridge--front" />
+            <div className="edinburgh-castle">
+              <span className="castle-crag" />
+              <span className="castle-keep" />
+              <span className="castle-tower castle-tower--left" />
+              <span className="castle-tower castle-tower--right" />
+              <span className="castle-flag" />
+              <span className="castle-light" />
+            </div>
+            <div className="edinburgh-tenements edinburgh-tenements--far">
+              <span /><span /><span /><span /><span />
+            </div>
+            <div className="edinburgh-tenements edinburgh-tenements--near">
+              <span /><span /><span /><span /><span /><span />
+            </div>
+            <div className="edinburgh-street">
+              <span className="street-line street-line--one" />
+              <span className="street-line street-line--two" />
+              <span className="street-glow" />
+            </div>
+          </div>
+          <div className="edinburgh-art-note glass-panel">
+            <span className="edinburgh-art-note__mark">SD / 01</span>
+            <strong>Stone, shadow<br />&amp; a little wonder.</strong>
+            <small>FIELD NOTE / EDINBURGH</small>
+          </div>
           <div className="hero-art-grid" />
           <div className="orbit orbit-one" />
           <div className="orbit orbit-two" />

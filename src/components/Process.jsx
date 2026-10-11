@@ -68,13 +68,13 @@ export default function Process() {
         <Reveal className="process-intro">
           <SectionHeading
             id="process-title"
-            eyebrow="The way I work / 02"
-            title="My Process"
-            description="A transparent path from first conversation to a site you can confidently own."
+            eyebrow="A considered practice / 02"
+            title="A route through the work"
+            description="Like walking the city, the best ideas reveal themselves in layers: a clear route, unexpected turns, and a place worth arriving at."
           />
           <div className="process-stamp glass-panel">
             <span className="stamp-mark">SD<span>.</span></span>
-            <span><strong>No black boxes.</strong><small>Clear steps, clean handover.</small></span>
+            <span><strong>No blank facades.</strong><small>A clear route, a thoughtful arrival.</small></span>
           </div>
         </Reveal>
 

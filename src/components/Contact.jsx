@@ -50,22 +50,22 @@ export default function Contact() {
         <Reveal variant="clip" y={0}>
           <SectionHeading
             id="contact-title"
-            eyebrow="Have a project in mind? / 05"
-            title="Let's Build Something"
-            description="Tell me a little about what you need. I’ll get back to you to talk through the next steps."
+            eyebrow="Leave a note / 05"
+            title="Let’s make a place"
+            description="Tell me what you are imagining. We can turn the first feeling into a route, a rhythm, and something people want to stay inside."
           />
         </Reveal>
 
         <div className="contact-layout">
           <Reveal className="contact-aside" delay={0.06}>
             <div className="contact-card glass-panel">
-              <span className="contact-card-label"><i /> OPEN TO GOOD IDEAS</span>
-              <h3>Have a project<br />in mind?</h3>
-              <p>Whether it’s a new website, a product idea, or an AI feature, let’s start with a conversation.</p>
+              <span className="contact-card-label"><i /> OPEN TO GOOD STORIES</span>
+              <h3>Have a feeling<br />in mind?</h3>
+              <p>Whether it’s a new identity, an expressive website, or a curious digital object, let’s start with a conversation.</p>
               <div className="contact-specialties">
-                <span>Business websites</span>
-                <span>Web apps</span>
-                <span>AI features</span>
+                <span>Art direction</span>
+                <span>Digital places</span>
+                <span>AI details</span>
               </div>
               <div className="contact-graphic" aria-hidden="true">
                 <span className="graphic-ring graphic-ring--one" />

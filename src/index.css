@@ -1640,3 +1640,355 @@ svg {
   .project-card:hover .mock-chat,
   .project-card:focus-within .mock-chat { transform: translateZ(30px) rotate(-2deg); }
 }
+
+/* Edinburgh art direction -------------------------------------------------
+   Old Town texture, New Town order, volcanic shadow, sandstone warmth. */
+:root {
+  --ink: #121114;
+  --ink-raised: #1b191c;
+  --panel: #242126;
+  --panel-light: #302a31;
+  --accent: #d7a66e;
+  --accent-bright: #f0c78f;
+  --muted: #bdb2b5;
+  --subtle: #80777e;
+  --line: rgba(225, 205, 184, 0.16);
+  --color-ink: #121114;
+  --color-ink-raised: #1b191c;
+  --color-panel: #242126;
+  --color-panel-light: #302a31;
+  --color-accent: #d7a66e;
+  --color-accent-bright: #f0c78f;
+  --color-muted: #bdb2b5;
+  --color-line: #3a333a;
+  --edinburgh-heather: #9b86aa;
+  --edinburgh-moss: #7e8c73;
+  --edinburgh-stone: #d5c2ad;
+  --edinburgh-night: #17151b;
+}
+
+html { background: var(--ink); }
+body {
+  background:
+    radial-gradient(ellipse at 13% 18%, rgba(143, 112, 164, 0.11), transparent 35%),
+    radial-gradient(ellipse at 88% 46%, rgba(198, 147, 94, 0.08), transparent 39%),
+    var(--ink);
+  color: #f3ece6;
+}
+body::before {
+  background-image:
+    linear-gradient(rgba(226, 202, 177, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(226, 202, 177, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 82%);
+}
+body::after {
+  background:
+    radial-gradient(ellipse 34% 35% at 19% 26%, rgba(117, 92, 143, 0.18), transparent 77%),
+    radial-gradient(ellipse 28% 34% at 81% 28%, rgba(218, 159, 101, 0.1), transparent 78%),
+    radial-gradient(ellipse 36% 28% at 58% 81%, rgba(102, 117, 91, 0.1), transparent 79%);
+}
+::selection { color: #171216; background: var(--accent); }
+
+.site-header {
+  border-bottom-color: rgba(225, 205, 184, 0.13);
+  background: rgba(18, 17, 20, 0.86);
+}
+.page-scroll-progress {
+  background: linear-gradient(90deg, var(--edinburgh-heather), var(--accent), var(--accent-bright));
+  box-shadow: 0 0 16px rgba(215, 166, 110, 0.42);
+}
+.brand-mark {
+  border-color: rgba(215, 166, 110, 0.42);
+  background: linear-gradient(145deg, rgba(215, 166, 110, 0.14), rgba(155, 134, 170, 0.08));
+}
+.brand:hover .brand-mark { border-color: rgba(240, 199, 143, 0.78); background: rgba(215, 166, 110, 0.14); }
+.brand-text strong { color: #f4ece5; }
+.brand-text small { color: #a1979d; }
+.nav-links a { color: #b9aeb1; }
+.nav-links a:hover { color: var(--accent-bright); }
+.nav-cta {
+  border-color: rgba(215, 166, 110, 0.32);
+  background: rgba(215, 166, 110, 0.08);
+  color: #ead9c8;
+}
+.nav-cta:hover { border-color: var(--accent); background: rgba(215, 166, 110, 0.16); color: var(--accent-bright); }
+
+.eyebrow { color: #b8aeb3; }
+.eyebrow-mark { background: var(--accent); box-shadow: 0 0 14px rgba(215, 166, 110, 0.72); }
+.hero-section {
+  background: linear-gradient(120deg, rgba(24, 21, 27, 0.12), rgba(215, 166, 110, 0.025));
+}
+.hero-copy h1,
+.section-heading h2,
+.project-details h3,
+.contact-card h3 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 500;
+  letter-spacing: -0.065em;
+}
+.hero-copy h1 { color: #f5eee8; }
+.hero-title-line--accent { color: var(--accent); font-style: italic; }
+.hero-lede { color: #bcb2b5; }
+.button-primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #21181a;
+  box-shadow: 0 10px 34px rgba(215, 166, 110, 0.16);
+}
+.button-primary:hover { border-color: var(--accent-bright); background: var(--accent-bright); box-shadow: 0 14px 38px rgba(215, 166, 110, 0.24); }
+.button-secondary { border-color: rgba(225, 205, 184, 0.25); background: rgba(255, 249, 241, 0.035); color: #e8ddd5; }
+.button-secondary:hover { border-color: rgba(215, 166, 110, 0.62); color: var(--accent-bright); }
+.hero-proof { border-top-color: rgba(225, 205, 184, 0.16); }
+.hero-proof span { color: #9e949a; }
+.hero-proof i { background: var(--accent); }
+.hero-scroll { color: #a2969b; }
+.hero-scroll:hover { color: var(--accent-bright); }
+.hero-index { color: #756a72; }
+
+/* The hero illustration is a CSS-built Edinburgh skyline: Castle Rock,
+   clustered Old Town tenements, and a quiet Georgian horizon. */
+.hero-art-stage {
+  min-height: inherit;
+  border: 1px solid rgba(225, 205, 184, 0.2);
+  border-radius: 28px 28px 10px 10px;
+  background: linear-gradient(155deg, rgba(49, 42, 52, 0.72), rgba(21, 20, 25, 0.96) 65%);
+  box-shadow: inset 0 1px 0 rgba(255, 247, 235, 0.12), 0 30px 90px rgba(0, 0, 0, 0.34);
+  overflow: hidden;
+}
+.hero-art-glow {
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(215, 166, 110, 0.18), rgba(155, 134, 170, 0.14) 33%, transparent 73%);
+  filter: blur(18px);
+}
+.hero-art-grid,
+.hero-art-stage > .orbit,
+.hero-art-stage > .surreal-object,
+.hero-art-stage > .glass-cube,
+.hero-art-stage > .build-window,
+.hero-art-stage > .ownership-float,
+.hero-art-stage > .ship-float { display: none; }
+.edinburgh-architecture {
+  position: absolute;
+  z-index: 1;
+  inset: 8% 7% 0;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(225, 205, 184, 0.2);
+  background:
+    radial-gradient(circle at 72% 21%, rgba(240, 199, 143, 0.16), transparent 12%),
+    linear-gradient(180deg, #292433 0%, #1d1a23 58%, #17151b 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 91%, 93% 91%, 89% 96%, 83% 92%, 76% 98%, 67% 91%, 59% 95%, 50% 90%, 42% 97%, 33% 91%, 25% 95%, 16% 90%, 8% 96%, 0 91%);
+  transform: translateZ(0);
+}
+.edinburgh-moon {
+  position: absolute;
+  top: 11%;
+  right: 13%;
+  width: 57px;
+  height: 57px;
+  border: 1px solid rgba(240, 199, 143, 0.42);
+  border-radius: 50%;
+  background: rgba(240, 199, 143, 0.1);
+  box-shadow: 0 0 34px rgba(240, 199, 143, 0.16);
+}
+.edinburgh-moon::after {
+  position: absolute;
+  top: -5px;
+  left: 12px;
+  width: 57px;
+  height: 57px;
+  border-radius: inherit;
+  background: #292433;
+  content: '';
+}
+.edinburgh-cloud {
+  position: absolute;
+  height: 1px;
+  border-top: 1px solid rgba(218, 208, 215, 0.18);
+  opacity: 0.7;
+}
+.edinburgh-cloud--one { top: 28%; left: 7%; width: 35%; transform: rotate(-4deg); }
+.edinburgh-cloud--two { top: 38%; right: 2%; width: 28%; transform: rotate(5deg); }
+.edinburgh-ridge { position: absolute; right: -5%; bottom: 28%; left: -5%; height: 43%; background: #26232c; opacity: 0.82; }
+.edinburgh-ridge--back { clip-path: polygon(0 76%, 8% 68%, 15% 73%, 24% 45%, 31% 61%, 40% 52%, 48% 66%, 59% 31%, 67% 58%, 74% 49%, 83% 66%, 91% 54%, 100% 68%, 100% 100%, 0 100%); opacity: 0.55; }
+.edinburgh-ridge--front { bottom: 19%; height: 31%; background: #1d1b22; clip-path: polygon(0 73%, 9% 68%, 18% 76%, 28% 57%, 37% 71%, 47% 51%, 54% 72%, 64% 60%, 71% 73%, 82% 53%, 90% 72%, 100% 62%, 100% 100%, 0 100%); }
+.edinburgh-castle { position: absolute; z-index: 3; bottom: 27%; left: 17%; width: 48%; height: 45%; }
+.castle-crag { position: absolute; right: 0; bottom: 0; left: 0; height: 47%; background: linear-gradient(145deg, #4b4146, #211e25); clip-path: polygon(0 100%, 7% 55%, 18% 67%, 31% 32%, 44% 55%, 57% 0, 69% 30%, 78% 22%, 90% 62%, 100% 49%, 100% 100%); }
+.castle-keep { position: absolute; bottom: 30%; left: 28%; width: 44%; height: 51%; border: 1px solid rgba(233, 215, 195, 0.35); background: linear-gradient(90deg, #6a5754, #3a3037); clip-path: polygon(0 16%, 18% 16%, 18% 0, 33% 0, 33% 16%, 70% 16%, 70% 6%, 87% 6%, 87% 16%, 100% 16%, 100% 100%, 0 100%); }
+.castle-tower { position: absolute; bottom: 31%; width: 16%; height: 66%; border: 1px solid rgba(233, 215, 195, 0.3); background: #58484d; }
+.castle-tower::before { position: absolute; top: -14px; right: -4px; left: -4px; height: 15px; background: #8a6d62; clip-path: polygon(50% 0, 100% 100%, 0 100%); content: ''; }
+.castle-tower--left { left: 8%; }
+.castle-tower--right { right: 8%; height: 55%; }
+.castle-flag { position: absolute; bottom: 95%; left: 50%; width: 1px; height: 28px; background: rgba(240, 199, 143, 0.7); }
+.castle-flag::after { position: absolute; top: 1px; left: 1px; width: 16px; height: 8px; background: var(--accent); clip-path: polygon(0 0, 100% 35%, 0 100%); content: ''; }
+.castle-light { position: absolute; bottom: 47%; left: 47%; width: 6px; height: 8px; border-radius: 50%; background: #f0c78f; box-shadow: 0 0 14px rgba(240, 199, 143, 0.8); }
+.edinburgh-tenements { position: absolute; z-index: 4; right: 4%; bottom: 18%; left: 2%; display: grid; align-items: end; gap: 4px; }
+.edinburgh-tenements span { position: relative; display: block; min-height: 75px; border: 1px solid rgba(226, 202, 177, 0.17); background-color: #3c3339; background-image: linear-gradient(90deg, transparent 38%, rgba(21, 19, 23, 0.6) 39% 45%, transparent 46%), linear-gradient(0deg, transparent 31%, rgba(21, 19, 23, 0.6) 32% 39%, transparent 40%); background-size: 23px 25px; box-shadow: inset 0 1px 0 rgba(246, 225, 202, 0.08); }
+.edinburgh-tenements span::after { position: absolute; top: 7px; right: 6px; left: 6px; height: 3px; background: rgba(231, 211, 191, 0.18); content: ''; }
+.edinburgh-tenements--far { right: 8%; bottom: 28%; left: 49%; grid-template-columns: repeat(5, 1fr); gap: 3px; opacity: 0.65; transform: perspective(300px) rotateY(-8deg); }
+.edinburgh-tenements--far span { min-height: 67px; background-color: #332d36; }
+.edinburgh-tenements--far span:nth-child(1) { height: 78px; }
+.edinburgh-tenements--far span:nth-child(2) { height: 94px; }
+.edinburgh-tenements--far span:nth-child(3) { height: 82px; }
+.edinburgh-tenements--far span:nth-child(4) { height: 105px; }
+.edinburgh-tenements--far span:nth-child(5) { height: 74px; }
+.edinburgh-tenements--near { grid-template-columns: repeat(6, 1fr); transform: perspective(500px) rotateY(8deg); transform-origin: left bottom; }
+.edinburgh-tenements--near span:nth-child(1) { height: 105px; }
+.edinburgh-tenements--near span:nth-child(2) { height: 137px; }
+.edinburgh-tenements--near span:nth-child(3) { height: 118px; }
+.edinburgh-tenements--near span:nth-child(4) { height: 147px; }
+.edinburgh-tenements--near span:nth-child(5) { height: 126px; }
+.edinburgh-tenements--near span:nth-child(6) { height: 109px; }
+.edinburgh-street { position: absolute; z-index: 5; right: 0; bottom: 0; left: 0; height: 22%; background: linear-gradient(175deg, transparent, rgba(12, 11, 15, 0.95) 54%); clip-path: polygon(0 47%, 100% 4%, 100% 100%, 0 100%); }
+.street-line { position: absolute; height: 1px; background: rgba(215, 166, 110, 0.52); transform-origin: left center; }
+.street-line--one { bottom: 31%; left: 28%; width: 64%; transform: rotate(-12deg); }
+.street-line--two { bottom: 52%; left: 45%; width: 33%; transform: rotate(-12deg); opacity: 0.45; }
+.street-glow { position: absolute; right: 21%; bottom: 35%; width: 5px; height: 5px; border-radius: 50%; background: var(--accent-bright); box-shadow: 0 0 18px 5px rgba(240, 199, 143, 0.42); }
+.edinburgh-art-note { position: absolute; z-index: 7; right: 8%; bottom: 8%; display: flex; min-width: 180px; flex-direction: column; gap: 7px; padding: 13px 15px; border-color: rgba(225, 205, 184, 0.24); background: rgba(24, 21, 27, 0.72); transform: rotate(2deg); }
+.edinburgh-art-note__mark { color: var(--accent); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 8px; letter-spacing: 0.13em; }
+.edinburgh-art-note strong { color: #eee1d5; font-family: Georgia, 'Times New Roman', serif; font-size: 15px; font-weight: 500; line-height: 1.05; }
+.edinburgh-art-note small { color: #9d929a; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 6px; letter-spacing: 0.13em; }
+
+.capability-marquee { border-color: rgba(225, 205, 184, 0.16); background: linear-gradient(90deg, rgba(155, 134, 170, 0.1), rgba(215, 166, 110, 0.06), rgba(126, 140, 115, 0.08)); }
+.marquee-item { color: rgba(235, 222, 211, 0.8); }
+.marquee-spark { color: var(--accent); }
+
+.section-services,
+.section-process,
+.section-work,
+.section-about,
+.section-contact { border-top-color: rgba(225, 205, 184, 0.13); }
+.section-heading h2 { color: #f1e9e4; }
+.section-description { color: #aaa0a4; }
+.section-services { background: radial-gradient(ellipse at 10% 8%, rgba(155, 134, 170, 0.12), transparent 44%), radial-gradient(ellipse at 90% 82%, rgba(215, 166, 110, 0.08), transparent 39%), linear-gradient(180deg, rgba(34, 29, 36, 0.5), rgba(18, 17, 20, 0.12)); }
+.section-process { background: radial-gradient(ellipse at 94% 48%, rgba(155, 134, 170, 0.1), transparent 42%), rgba(18, 17, 20, 0.28); }
+.section-work { background: radial-gradient(ellipse at 78% 8%, rgba(215, 166, 110, 0.08), transparent 38%), linear-gradient(180deg, rgba(30, 26, 32, 0.35), rgba(18, 17, 20, 0.18)); }
+.section-about { background: radial-gradient(ellipse at 12% 80%, rgba(126, 140, 115, 0.09), transparent 48%), rgba(28, 25, 30, 0.28); }
+.section-contact { background: radial-gradient(ellipse at 93% 14%, rgba(155, 134, 170, 0.12), transparent 45%), linear-gradient(180deg, rgba(30, 25, 32, 0.52), rgba(18, 17, 20, 0.68)); }
+
+.glass-panel {
+  border-color: rgba(225, 205, 184, 0.21);
+  background: linear-gradient(140deg, rgba(247, 229, 211, 0.1), rgba(239, 223, 238, 0.035) 42%, rgba(155, 134, 170, 0.06));
+  box-shadow: inset 0 1px 0 rgba(255, 248, 239, 0.2), inset 0 -1px 0 rgba(255, 248, 239, 0.03), 0 24px 70px rgba(0, 0, 0, 0.29);
+  backdrop-filter: blur(20px) saturate(125%);
+  -webkit-backdrop-filter: blur(20px) saturate(125%);
+}
+.service-card.glass-panel { background: linear-gradient(145deg, rgba(247, 229, 211, 0.1), rgba(239, 223, 238, 0.035) 42%, rgba(155, 134, 170, 0.06)); }
+.service-card.glass-panel:hover { border-color: rgba(240, 199, 143, 0.58); background: linear-gradient(145deg, rgba(247, 229, 211, 0.16), rgba(239, 223, 238, 0.065) 44%, rgba(155, 134, 170, 0.1)); }
+.service-card { position: relative; border-color: rgba(225, 205, 184, 0.16); background-color: #242126; }
+.service-card::before { position: absolute; inset: 0; border: 1px solid rgba(215, 166, 110, 0.08); border-radius: inherit; content: ''; pointer-events: none; }
+.service-card-top { position: relative; z-index: 1; }
+.service-icon-wrap { border-color: rgba(215, 166, 110, 0.32); background: rgba(215, 166, 110, 0.09); color: var(--accent-bright); }
+.service-card-link:hover .service-icon-wrap,
+.service-card-link:focus-visible .service-icon-wrap { border-color: rgba(240, 199, 143, 0.72); background: rgba(215, 166, 110, 0.17); }
+.service-number { color: #8f838b; }
+.service-card-copy,
+.service-card-foot { position: relative; z-index: 1; }
+.service-card-copy h3 { color: #f1e8df; font-family: Georgia, 'Times New Roman', serif; font-size: 23px; font-weight: 500; }
+.service-card-copy p { color: #aaa0a4; }
+.service-card-foot { border-top-color: rgba(225, 205, 184, 0.13); color: #978b91; }
+.service-card-arrow { color: var(--accent); }
+.service-scroll-hint { color: #a3989e; }
+.service-scroll-hint span { color: var(--accent); }
+.service-arrow-controls button { border-color: rgba(225, 205, 184, 0.24); background: rgba(247, 229, 211, 0.04); color: #eee3da; }
+.service-arrow-controls button:hover:not(:disabled) { border-color: rgba(240, 199, 143, 0.68); background: rgba(215, 166, 110, 0.12); color: var(--accent-bright); }
+
+.process-stamp.glass-panel { background: linear-gradient(135deg, rgba(247, 229, 211, 0.1), rgba(42, 34, 44, 0.6)); }
+.process-stamp { border-color: rgba(225, 205, 184, 0.16); }
+.stamp-mark { color: #f0e3d8; }
+.stamp-mark span { color: var(--accent); }
+.process-stamp strong { color: #f0e5dc; }
+.process-stamp small { color: #998e95; }
+.process-progress-track { background: linear-gradient(to bottom, rgba(215, 166, 110, 0.45), rgba(155, 134, 170, 0.26), rgba(126, 140, 115, 0.2)); }
+.process-progress { background: var(--accent); box-shadow: 0 0 12px rgba(215, 166, 110, 0.58); }
+.process-item { border-color: rgba(225, 205, 184, 0.16); background: linear-gradient(112deg, rgba(247, 229, 211, 0.075), rgba(239, 223, 238, 0.025) 48%, rgba(155, 134, 170, 0.07)); }
+.process-item:hover { border-color: rgba(240, 199, 143, 0.52); }
+.process-number { border-color: rgba(215, 166, 110, 0.46); background: #1a171c; color: var(--accent-bright); }
+.process-item:hover .process-number { background: rgba(215, 166, 110, 0.15); box-shadow: 0 0 20px rgba(215, 166, 110, 0.17); }
+.process-label { color: #998c95; }
+.process-copy h3 { color: #f0e6df; font-family: Georgia, 'Times New Roman', serif; font-size: 19px; font-weight: 500; }
+.process-description { color: #a99fa4; }
+.process-arrow { color: #968993; }
+.process-item:hover .process-arrow, .process-arrow:focus-visible { color: var(--accent-bright); }
+
+.project-scroll-hint { color: #a3989e; }
+.project-scroll-hint span { color: var(--accent); }
+.project-current { color: #91858d; }
+.project-current strong { color: var(--accent-bright); }
+.project-arrow-controls button { border-color: rgba(225, 205, 184, 0.24); background: rgba(247, 229, 211, 0.04); color: #eee3da; }
+.project-arrow-controls button:hover:not(:disabled) { border-color: rgba(240, 199, 143, 0.68); background: rgba(215, 166, 110, 0.12); color: var(--accent-bright); }
+.project-card { border-color: rgba(225, 205, 184, 0.2); background: linear-gradient(155deg, rgba(247, 229, 211, 0.1), rgba(22, 20, 25, 0.82) 45%, rgba(155, 134, 170, 0.12)); }
+.project-card:hover, .project-card:focus-within { border-color: rgba(240, 199, 143, 0.68); box-shadow: inset 0 1px 0 rgba(255, 248, 239, 0.24), 0 32px 100px rgba(0, 0, 0, 0.52), 0 0 48px rgba(215, 166, 110, 0.12); }
+.project-art--studio { background-color: #302936; background-image: linear-gradient(rgba(231, 211, 191, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(231, 211, 191, 0.05) 1px, transparent 1px), radial-gradient(ellipse at 68% 54%, rgba(215, 166, 110, 0.18), transparent 55%); }
+.project-art--dashboard { background-color: #252d2b; background-image: linear-gradient(rgba(231, 211, 191, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(231, 211, 191, 0.045) 1px, transparent 1px), radial-gradient(ellipse at 26% 86%, rgba(126, 140, 115, 0.2), transparent 54%); }
+.project-art--assistant { background-color: #342b2b; background-image: linear-gradient(rgba(231, 211, 191, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(231, 211, 191, 0.045) 1px, transparent 1px), radial-gradient(ellipse at 73% 23%, rgba(155, 134, 170, 0.22), transparent 58%); }
+.project-art-label { color: rgba(239, 224, 212, 0.65); }
+.project-art-orbit { border-color: rgba(240, 199, 143, 0.16); }
+.project-art-orbit::before { border-color: rgba(155, 134, 170, 0.18); }
+.project-art-orbit::after { border-color: rgba(215, 166, 110, 0.18); }
+.project-card:hover .project-art-orbit, .project-card:focus-within .project-art-orbit { border-color: rgba(240, 199, 143, 0.4); }
+.project-type { color: #a79a9f; }
+.project-concept { border-color: rgba(215, 166, 110, 0.27); color: #d8c4b2; }
+.project-concept i { background: var(--accent); box-shadow: 0 0 10px rgba(215, 166, 110, 0.8); }
+.project-details h3 { color: #f2e8e1; }
+.project-descriptor { color: #dfcdbd; }
+.project-description { color: #a99fa4; }
+.project-tags span { border-color: rgba(225, 205, 184, 0.15); background: rgba(247, 229, 211, 0.045); color: #bdb0b1; }
+.project-cta { border-color: rgba(215, 166, 110, 0.3); background: rgba(215, 166, 110, 0.07); color: #eadbce; }
+.project-cta:hover, .project-cta:focus-visible { border-color: rgba(240, 199, 143, 0.72); background: rgba(215, 166, 110, 0.15); color: var(--accent-bright); box-shadow: 0 10px 28px rgba(140, 91, 56, 0.18); }
+.project-cta svg { color: var(--accent); }
+
+.about-monogram { border-color: rgba(215, 166, 110, 0.24); background: radial-gradient(circle at 70% 28%, rgba(215, 166, 110, 0.17), transparent 39%), linear-gradient(145deg, rgba(247, 229, 211, 0.11), rgba(24, 20, 28, 0.72) 60%, rgba(155, 134, 170, 0.12)); }
+.about-monogram > span { color: #f0e4db; font-family: Georgia, 'Times New Roman', serif; font-weight: 500; }
+.about-monogram > span:nth-child(2) { color: var(--accent); }
+.about-monogram > i { border-color: rgba(215, 166, 110, 0.19); }
+.about-monogram small { color: #978b92; }
+.about-statement { color: #ddd1ca; font-family: Georgia, 'Times New Roman', serif; }
+.principle-card { border-bottom-color: rgba(225, 205, 184, 0.14); }
+.principle-card > span { color: var(--accent); }
+.principle-card h3 { color: #eee3db; font-family: Georgia, 'Times New Roman', serif; font-weight: 500; }
+.principle-card p { color: #a69ba0; }
+
+.contact-card.glass-panel { border-color: rgba(225, 205, 184, 0.24); background: radial-gradient(ellipse at 100% 100%, rgba(126, 140, 115, 0.2), transparent 57%), linear-gradient(145deg, rgba(247, 229, 211, 0.12), rgba(27, 22, 30, 0.82) 58%, rgba(155, 134, 170, 0.14)); }
+.contact-card-label { color: #d3c1b4; }
+.contact-card-label i { background: var(--accent); box-shadow: 0 0 9px rgba(215, 166, 110, 0.75); }
+.contact-card h3 { color: #f2e8e0; }
+.contact-card > p { color: #ada1a6; }
+.contact-specialties span { border-color: rgba(225, 205, 184, 0.16); color: #c2b2ae; background: rgba(247, 229, 211, 0.045); }
+.graphic-ring { border-color: rgba(215, 166, 110, 0.26); }
+.graphic-ring--two { border-color: rgba(155, 134, 170, 0.2); }
+.graphic-cross { color: var(--accent); }
+.graphic-dot { background: var(--accent); box-shadow: 0 0 22px rgba(215, 166, 110, 0.72); }
+.contact-social > p { color: #948890; }
+.social-links a { border-color: rgba(225, 205, 184, 0.16); color: #b2a6aa; }
+.social-links a:hover { border-color: rgba(215, 166, 110, 0.48); background: rgba(215, 166, 110, 0.08); color: var(--accent-bright); }
+.social-links a, .project-tags span, .contact-specialties span { background: rgba(247, 229, 211, 0.045); }
+.contact-form.glass-panel { border-color: rgba(225, 205, 184, 0.19); background: linear-gradient(145deg, rgba(247, 229, 211, 0.08), rgba(21, 18, 25, 0.82) 53%, rgba(155, 134, 170, 0.1)); }
+.form-field label { color: #decfc7; }
+.form-field input, .form-field textarea { border-color: rgba(225, 205, 184, 0.17); background: rgba(12, 10, 14, 0.38); color: #f1e9e4; }
+.form-field input:focus, .form-field textarea:focus { border-color: rgba(215, 166, 110, 0.64); background: rgba(12, 10, 14, 0.64); }
+.form-note { color: #978b91; }
+.site-footer { border-top-color: rgba(225, 205, 184, 0.14); background: rgba(12, 10, 14, 0.72); }
+.footer-brand { color: #f1e7df; }
+.footer-brand span { color: var(--accent); }
+.footer-inner > p { color: #92868e; }
+.back-to-top { color: #a0959b; }
+.back-to-top:hover { color: var(--accent-bright); }
+
+@media (max-width: 700px) {
+  .hero-copy h1 { font-size: clamp(3.15rem, 13vw, 5rem); }
+  .hero-art-wrap { min-height: 430px; }
+  .hero-art-stage { border-radius: 22px 22px 8px 8px; }
+  .edinburgh-architecture { inset: 7% 4% 0; }
+  .edinburgh-castle { left: 10%; width: 55%; }
+  .edinburgh-tenements--near { right: 1%; left: -6%; }
+  .edinburgh-tenements--far { right: -4%; left: 42%; }
+  .edinburgh-art-note { right: 5%; bottom: 7%; min-width: 165px; }
+  .service-card-copy h3 { font-size: 21px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edinburgh-art-note { transform: none; }
+  .edinburgh-moon { box-shadow: none; }
+}

@@ -12,17 +12,17 @@ export default function About() {
     <section className="section-pad section-about" id="about" aria-labelledby="about-title">
       <div className="site-container about-layout">
         <Reveal className="about-heading">
-          <SectionHeading id="about-title" eyebrow="A little about me / 04" title="About" />
+          <SectionHeading id="about-title" eyebrow="The maker / 04" title="About the practice" />
           <div className="about-monogram glass-panel" aria-hidden="true">
             <span>S</span><span>D</span><i />
-            <small>DEVELOPER<br />BY DESIGN</small>
+            <small>MADE<br />WITH INTENT</small>
           </div>
         </Reveal>
 
         <div className="about-content">
           <Reveal>
             <p className="about-statement">
-              I&apos;m Soumallo Deb, a developer specializing in AI-accelerated web development. I combine agentic AI coding tools with standard engineering practices — GitHub version control, proper hosting, and clean handover — to deliver professional websites and web apps faster and more affordably than traditional agencies.
+              I&apos;m Soumallo Deb, an artist and creative developer drawn to the space between structure and feeling. I make digital experiences that borrow from Edinburgh&apos;s stone, weather, windows, and winding routes — then turn those references into something unmistakably their own.
             </p>
           </Reveal>
           <div className="principles-grid">

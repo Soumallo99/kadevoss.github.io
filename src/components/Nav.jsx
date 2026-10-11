@@ -28,7 +28,7 @@ export default function Nav() {
           <span className="brand-mark">S<span>D</span><i>.</i></span>
           <span className="brand-text">
             <strong>Soumallo Deb</strong>
-            <small>Web developer</small>
+            <small>Creative practice</small>
           </span>
         </a>
 

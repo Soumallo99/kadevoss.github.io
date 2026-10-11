@@ -1,21 +1,21 @@
 const capabilities = [
-  'AI-accelerated',
-  'Thoughtful design',
-  'Production code',
-  'Yours to own',
-  'Built for speed',
+  'Old town / new town',
+  'Sandstone light',
+  'Gothic silhouettes',
+  'Hidden closes',
+  'Digital atmosphere',
 ]
 
 export default function CapabilitiesMarquee() {
   return (
-    <section className="capability-marquee" aria-label="AI-accelerated development, thoughtful design, production code, and client ownership">
+    <section className="capability-marquee" aria-label="Old Town and New Town, sandstone light, Gothic silhouettes, hidden closes, and digital atmosphere">
       <div className="marquee-window" aria-hidden="true">
         <div className="marquee-track">
           {[0, 1].map((copy) => (
             <div className="marquee-group" key={copy}>
               {capabilities.map((item) => (
                 <span className="marquee-item" key={`${copy}-${item}`}>
-                  {item}<b className="marquee-spark">✳</b>
+                  {item}<b className="marquee-spark">✦</b>
                 </span>
               ))}
             </div>

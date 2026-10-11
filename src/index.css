@@ -3117,19 +3117,3 @@ button,
 /* About heading: keep the final word as one deliberate engraved line. */
 .about-heading .section-heading h2 { max-width: 5.8em; }
 .about-title-line { display: inline-block; white-space: nowrap; }
-
-/* Keep the About ornament fully inside its section instead of exposing a clipped half-rectangle. */
-.section-scroll-decor--about {
-  right: 5%;
-  bottom: 10%;
-  width: clamp(150px, 20vw, 290px);
-  opacity: 0.42;
-}
-
-@media (max-width: 700px) {
-  .section-scroll-decor--about {
-    right: 5%;
-    bottom: 6%;
-    width: min(230px, 48vw);
-  }
-}

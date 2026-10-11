@@ -1,4 +1,3 @@
-import { motion, useTransform } from 'framer-motion'
 import Reveal from './Reveal.jsx'
 import useSectionMotion from '../hooks/useSectionMotion.js'
 import SectionHeading from './SectionHeading.jsx'
@@ -11,14 +10,11 @@ const principles = [
 ]
 
 export default function About() {
-  const { sectionRef, progress, shouldReduceMotion } = useSectionMotion()
-  const aboutDrift = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [52, -44])
-  const aboutScale = useTransform(progress, [0, 1], shouldReduceMotion ? [1, 1] : [0.86, 1.18])
+  const { sectionRef } = useSectionMotion()
 
   return (
     <section ref={sectionRef} className="section-pad section-about" id="about" aria-labelledby="about-title">
       <InkBleed className="ink-bleed--about" />
-      <motion.div className="section-scroll-decor section-scroll-decor--about" style={{ y: aboutDrift, scale: aboutScale }} aria-hidden="true" />
       <div className="site-container about-layout">
         <Reveal className="about-heading">
           <SectionHeading

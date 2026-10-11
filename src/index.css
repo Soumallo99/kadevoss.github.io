@@ -2962,3 +2962,154 @@ h6,
   .hero-etching-layer,
   .edinburgh-fog { will-change: auto; }
 }
+
+/* Immersive installation layer -------------------------------------------- */
+.webgl-fog {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0.58;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  will-change: opacity;
+}
+
+.scroll-atmosphere { z-index: 0; }
+
+.services-kinetic-stage {
+  position: relative;
+  z-index: 1;
+  height: clamp(82px, 11vw, 132px);
+  overflow: hidden;
+  margin: 2px 0 -4px;
+  border-radius: 2px;
+  background:
+    linear-gradient(90deg, rgba(25, 35, 43, 0.02), rgba(195, 154, 98, 0.08), rgba(25, 35, 43, 0.02)),
+    url('/edinburgh-etching.svg') center / 120% auto no-repeat;
+  opacity: 0.62;
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  pointer-events: none;
+}
+.services-kinetic-stage::after {
+  position: absolute;
+  inset: 0;
+  background: var(--grain);
+  background-size: 110px 110px;
+  content: '';
+  opacity: 0.22;
+  mix-blend-mode: soft-light;
+}
+.services-kinetic-track {
+  position: absolute;
+  top: 50%;
+  left: -12%;
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: clamp(22px, 5vw, 72px);
+  color: rgba(225, 189, 126, 0.48);
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: clamp(10px, 1.2vw, 14px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  will-change: transform;
+}
+.services-kinetic-track i { color: var(--accent-bright); font-style: normal; }
+
+.kinetic-char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.hero-copy h1,
+.hero-copy h1 .hero-title-line,
+.hero-copy h1 .kinetic-char {
+  color: transparent;
+  background-image: linear-gradient(120deg, #e7d8bd 8%, #c7a36c 47%, #f0d39b 66%, #9faab0 100%), var(--grain);
+  background-position: 0 0, 0 0;
+  background-size: 180% 100%, 120px 120px;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: engraved-text-flow 18s ease-in-out infinite alternate;
+}
+.hero-copy h1 .hero-title-line--accent,
+.hero-copy h1 .hero-title-line--accent .kinetic-char {
+  background-image: linear-gradient(120deg, #a88150 0%, #e6c184 42%, #f3dca8 68%, #9b866f 100%), var(--grain);
+}
+
+@keyframes engraved-text-flow {
+  from { background-position: 0% 0, 0 0; }
+  to { background-position: 100% 0, 28px -16px; }
+}
+
+.artistic-cursor {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(238, 222, 193, 0.72);
+  border-radius: 50%;
+  background: #e8e3d3;
+  box-shadow: 0 0 18px rgba(225, 189, 126, 0.16);
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  scale: 1;
+  transition: width 0.3s ease, height 0.3s ease, scale 0.3s ease, opacity 0.25s ease;
+  will-change: transform;
+}
+
+.artistic-cursor.hovering {
+  width: 80px;
+  height: 80px;
+  scale: 0.9;
+}
+
+body:has(.artistic-cursor) .artistic-cursor { opacity: 0.88; }
+
+.button,
+.nav-cta,
+.project-cta,
+button,
+.social-links a,
+.back-to-top {
+  --magnetic-x: 0px;
+  --magnetic-y: 0px;
+  translate: var(--magnetic-x) var(--magnetic-y);
+}
+
+@media (pointer: fine) and (hover: hover) {
+  html,
+  body,
+  a,
+  button { cursor: none; }
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .artistic-cursor { display: none; }
+}
+
+@media (max-width: 700px) {
+  .webgl-fog { opacity: 0.42; }
+  .services-kinetic-stage { height: 82px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .webgl-fog { opacity: 0.2; }
+  .hero-copy h1,
+  .hero-copy h1 .hero-title-line,
+  .hero-copy h1 .kinetic-char { animation: none; }
+  .button,
+  .nav-cta,
+  .project-cta,
+  button,
+  .social-links a,
+  .back-to-top { translate: none; }
+}

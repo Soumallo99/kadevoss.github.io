@@ -1,11 +1,15 @@
-import { useCallback, useRef } from 'react'
+import { useCallback, useLayoutEffect, useRef } from 'react'
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Reveal from './Reveal.jsx'
 import SectionHeading from './SectionHeading.jsx'
 import useHorizontalRail from '../hooks/useHorizontalRail.js'
 import useSectionMotion from '../hooks/useSectionMotion.js'
 import { ArrowRight, ArrowUpRight, ServiceIcon } from './Icons.jsx'
 import InkBleed from './InkBleed.jsx'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const services = [
   {
@@ -99,6 +103,30 @@ function ServiceCard({ service, index, registerItem, railRef, shouldReduceMotion
 
 export default function Services() {
   const { sectionRef, progress, shouldReduceMotion } = useSectionMotion()
+  const kineticStageRef = useRef(null)
+  useLayoutEffect(() => {
+    if (shouldReduceMotion || !kineticStageRef.current) return undefined
+
+    const context = gsap.context(() => {
+      gsap.fromTo(
+        '.services-kinetic-track',
+        { xPercent: -14, rotation: -1.2 },
+        {
+          xPercent: 14,
+          rotation: 1.2,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: kineticStageRef.current,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.15,
+          },
+        },
+      )
+    }, kineticStageRef)
+
+    return () => context.revert()
+  }, [shouldReduceMotion])
   const serviceDrift = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [-42, 52])
   const serviceRotate = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [-5, 5])
   const serviceGlow = useTransform(progress, [0, 1], shouldReduceMotion ? [0.22, 0.22] : [0.12, 0.4])
@@ -128,6 +156,12 @@ export default function Services() {
                 <ArrowRight className="service-rail-arrow" />
               </button>
             </div>
+          </div>
+        </div>
+
+        <div ref={kineticStageRef} className="services-kinetic-stage" aria-hidden="true">
+          <div className="services-kinetic-track">
+            <span>OLD TOWN / NEW TOWN</span><i>✦</i><span>PROMPT SYSTEMS / HUMAN HAND</span><i>✦</i><span>STONE / SIGNAL / STORY</span><i>✦</i>
           </div>
         </div>
 

@@ -3,6 +3,7 @@ import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTran
 import Reveal from './Reveal.jsx'
 import { ArrowDown, ArrowRight } from './Icons.jsx'
 import InkBleed from './InkBleed.jsx'
+import useKineticSplit from '../hooks/useKineticSplit.js'
 
 const heroContainer = {
   hidden: {},
@@ -31,6 +32,8 @@ export default function Hero() {
   const shouldReduceMotion = useReducedMotion()
   const noMotionVariants = { hidden: {}, visible: {} }
   const heroRef = useRef(null)
+  const heroTitleRef = useRef(null)
+  useKineticSplit(heroTitleRef, { start: 'top 92%', delay: 0.12 })
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
   const smoothScrollProgress = useSpring(scrollYProgress, shouldReduceMotion ? { stiffness: 1000, damping: 100 } : { stiffness: 150, damping: 32, mass: 0.45 })
   const artScrollY = useTransform(smoothScrollProgress, [0, 1], shouldReduceMotion ? [0, 0] : [-8, 58])
@@ -83,7 +86,7 @@ export default function Hero() {
           <motion.p variants={shouldReduceMotion ? noMotionVariants : heroItem} className="eyebrow hero-eyebrow">
             <span className="eyebrow-mark" />EDINBURGH / OLD TOWN × NEW TOWN
           </motion.p>
-          <h1 id="hero-title">
+          <h1 ref={heroTitleRef} id="hero-title">
             <span className="hero-title-mask">
               <motion.span className="hero-title-line" variants={shouldReduceMotion ? noMotionVariants : heroLine}>Built from</motion.span>
             </span>

@@ -3,7 +3,7 @@ const capabilities = [
   'Sandstone light',
   'Gothic silhouettes',
   'Hidden closes',
-  'Digital atmosphere',
+  'Prompt craft / AI systems',
 ]
 
 export default function CapabilitiesMarquee() {

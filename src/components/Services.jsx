@@ -24,9 +24,9 @@ const services = [
   {
     number: '03',
     icon: 'ai',
-    title: 'AI-Powered Features',
-    description: 'Thoughtful assistants, smart search, and content tools with human-first controls.',
-    note: 'Useful AI, right where you need it',
+    title: 'Prompt Systems & AI',
+    description: 'Prompt architecture, assistants, evaluations, and content workflows with human-first controls.',
+    note: 'Intelligence with a human hand',
   },
   {
     number: '04',

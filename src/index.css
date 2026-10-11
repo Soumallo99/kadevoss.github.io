@@ -1,39 +1,39 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #080b09;
-  --color-ink-raised: #0d120f;
-  --color-panel: #101612;
-  --color-panel-light: #151d17;
-  --color-accent: #c5f36a;
-  --color-accent-bright: #d6ff82;
-  --color-muted: #a4ada4;
-  --color-line: #273129;
-  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  --color-ink: #1a232b;
+  --color-ink-raised: #232e37;
+  --color-panel: #2a343d;
+  --color-panel-light: #39434b;
+  --color-accent: #c39a62;
+  --color-accent-bright: #e1bd7e;
+  --color-muted: #c9c0b3;
+  --color-line: #56616a;
+  --font-sans: "Cormorant Garamond", Georgia, serif;
+  --font-mono: "Courier Prime", "Courier New", monospace;
   --shadow-glow: 0 0 56px rgba(197, 243, 106, 0.11);
 }
 
 :root {
   color-scheme: dark;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-optical-sizing: auto;
-  background: #080b09;
-  color: #f0f4ed;
+  background: #1a232b;
+  color: #e7ded1;
   font-weight: 400;
-  --ink: #080b09;
-  --ink-raised: #0d120f;
-  --panel: #101612;
-  --panel-light: #151d17;
-  --accent: #c5f36a;
-  --accent-bright: #d6ff82;
-  --muted: #a4ada4;
-  --subtle: #737f74;
-  --line: rgba(190, 211, 190, 0.13);
+  --ink: #1a232b;
+  --ink-raised: #232e37;
+  --panel: #2a343d;
+  --panel-light: #39434b;
+  --accent: #c39a62;
+  --accent-bright: #e1bd7e;
+  --muted: #c9c0b3;
+  --subtle: #918d87;
+  --line: rgba(210, 195, 169, 0.2);
 }
 
 * {
@@ -50,8 +50,11 @@ body {
   margin: 0;
   overflow-x: clip;
   isolation: isolate;
-  background: var(--ink);
-  color: #f0f4ed;
+  background:
+    radial-gradient(ellipse at 15% 10%, rgba(105, 117, 128, 0.24), transparent 38%),
+    radial-gradient(ellipse at 86% 62%, rgba(156, 117, 71, 0.13), transparent 42%),
+    linear-gradient(135deg, #1e2932 0%, #151e26 48%, #2a2c31 100%);
+  color: #e7ded1;
 }
 
 body::before {
@@ -1631,49 +1634,54 @@ svg {
 /* Edinburgh art direction -------------------------------------------------
    Old Town texture, New Town order, volcanic shadow, sandstone warmth. */
 :root {
-  --ink: #121114;
-  --ink-raised: #1b191c;
-  --panel: #242126;
-  --panel-light: #302a31;
-  --accent: #d7a66e;
-  --accent-bright: #f0c78f;
-  --muted: #bdb2b5;
-  --subtle: #80777e;
-  --line: rgba(225, 205, 184, 0.16);
-  --color-ink: #121114;
-  --color-ink-raised: #1b191c;
-  --color-panel: #242126;
-  --color-panel-light: #302a31;
-  --color-accent: #d7a66e;
-  --color-accent-bright: #f0c78f;
-  --color-muted: #bdb2b5;
-  --color-line: #3a333a;
-  --edinburgh-heather: #9b86aa;
-  --edinburgh-moss: #7e8c73;
-  --edinburgh-stone: #d5c2ad;
-  --edinburgh-night: #17151b;
+  --ink: #1a232b;
+  --ink-raised: #232e37;
+  --panel: #2a343d;
+  --panel-light: #39434b;
+  --accent: #c39a62;
+  --accent-bright: #e1bd7e;
+  --muted: #c9c0b3;
+  --subtle: #918d87;
+  --line: rgba(210, 195, 169, 0.2);
+  --color-ink: #1a232b;
+  --color-ink-raised: #232e37;
+  --color-panel: #2a343d;
+  --color-panel-light: #39434b;
+  --color-accent: #c39a62;
+  --color-accent-bright: #e1bd7e;
+  --color-muted: #c9c0b3;
+  --color-line: #56616a;
+  --edinburgh-heather: #867c87;
+  --edinburgh-moss: #7d897e;
+  --edinburgh-stone: #d7c4a5;
+  --edinburgh-night: #1b252d;
 }
 
-html { background: var(--ink); }
-body {
+html {
   background:
-    radial-gradient(ellipse at 13% 18%, rgba(143, 112, 164, 0.11), transparent 35%),
-    radial-gradient(ellipse at 88% 46%, rgba(198, 147, 94, 0.08), transparent 39%),
-    var(--ink);
-  color: #f3ece6;
+    radial-gradient(ellipse at 15% 10%, rgba(105, 117, 128, 0.24), transparent 38%),
+    radial-gradient(ellipse at 86% 62%, rgba(156, 117, 71, 0.13), transparent 42%),
+    linear-gradient(135deg, #1e2932 0%, #151e26 48%, #2a2c31 100%);
+}
+body {
+  background: transparent;
+  color: #e7ded1;
 }
 body::before {
   background-image:
-    linear-gradient(rgba(226, 202, 177, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(226, 202, 177, 0.035) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 82%);
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='.48'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(113deg, rgba(226, 210, 184, 0.024) 0 1px, transparent 1px 8px),
+    repeating-linear-gradient(23deg, rgba(8, 12, 16, 0.025) 0 1px, transparent 1px 11px);
+  background-size: 160px 160px, 9px 9px, 13px 13px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.68));
+  opacity: 0.27;
+  mix-blend-mode: soft-light;
 }
 body::after {
   background:
-    radial-gradient(ellipse 34% 35% at 19% 26%, rgba(117, 92, 143, 0.18), transparent 77%),
-    radial-gradient(ellipse 28% 34% at 81% 28%, rgba(218, 159, 101, 0.1), transparent 78%),
-    radial-gradient(ellipse 36% 28% at 58% 81%, rgba(102, 117, 91, 0.1), transparent 79%);
+    radial-gradient(ellipse 34% 35% at 19% 26%, rgba(112, 127, 143, 0.16), transparent 77%),
+    radial-gradient(ellipse 28% 34% at 81% 28%, rgba(205, 159, 94, 0.1), transparent 78%),
+    radial-gradient(ellipse 36% 28% at 58% 81%, rgba(118, 133, 112, 0.1), transparent 79%);
 }
 ::selection { color: #171216; background: var(--accent); }
 
@@ -2105,3 +2113,634 @@ main,
   .scroll-atmosphere__mist,
   .section-scroll-decor { will-change: auto; }
 }
+
+/* Vintage Edinburgh plate -------------------------------------------------
+   The canvas is intentionally continuous: slate, fog, paper grain, and gaslight
+   sit behind the content while the cards read as printed folios rather than SaaS panels. */
+:root {
+  --ink: #1a232b;
+  --ink-raised: #232e37;
+  --panel: #2b353d;
+  --panel-light: #3a444b;
+  --accent: #c39a62;
+  --accent-bright: #e1bd7e;
+  --muted: #c9c0b3;
+  --subtle: #918d87;
+  --line: rgba(218, 199, 169, 0.23);
+  --paper: #e3d4bc;
+  --paper-dim: #bba98f;
+  --slate: #26323b;
+  --slate-deep: #19232b;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.68' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='.28'/%3E%3C/svg%3E");
+}
+
+html {
+  background:
+    radial-gradient(ellipse at 15% 10%, rgba(105, 117, 128, 0.24), transparent 38%),
+    radial-gradient(ellipse at 86% 62%, rgba(156, 117, 71, 0.13), transparent 42%),
+    linear-gradient(135deg, #1e2932 0%, #151e26 48%, #2a2c31 100%);
+}
+
+body {
+  background: transparent;
+  color: var(--paper);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 17px;
+}
+
+body::before {
+  background-image:
+    var(--grain),
+    repeating-linear-gradient(113deg, rgba(226, 210, 184, 0.024) 0 1px, transparent 1px 8px),
+    repeating-linear-gradient(23deg, rgba(8, 12, 16, 0.025) 0 1px, transparent 1px 11px);
+  background-size: 140px 140px, 9px 9px, 13px 13px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.66));
+  opacity: 0.29;
+  mix-blend-mode: soft-light;
+}
+
+body::after {
+  background:
+    radial-gradient(ellipse 34% 35% at 19% 26%, rgba(112, 127, 143, 0.16), transparent 77%),
+    radial-gradient(ellipse 28% 34% at 81% 28%, rgba(205, 159, 94, 0.1), transparent 78%),
+    radial-gradient(ellipse 36% 28% at 58% 81%, rgba(118, 133, 112, 0.1), transparent 79%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.hero-copy h1,
+.section-heading h2,
+.process-copy h3,
+.project-details h3,
+.contact-card h3,
+.about-statement,
+.about-monogram > span,
+.principle-card h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  text-rendering: optimizeLegibility;
+}
+
+.hero-copy h1 {
+  color: var(--paper);
+  font-size: clamp(4rem, 7vw, 7.4rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 0.86;
+  text-shadow: 0 2px 18px rgba(7, 10, 13, 0.3);
+}
+
+.hero-title-line--accent {
+  color: var(--accent-bright);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.section-heading h2 {
+  color: var(--paper);
+  font-size: clamp(3rem, 5.4vw, 5.2rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 0.9;
+}
+
+.hero-lede,
+.section-description,
+.about-statement,
+.process-description,
+.project-description,
+.contact-card > p {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.hero-lede {
+  color: #c9c0b4;
+  font-size: clamp(18px, 1.55vw, 21px);
+  line-height: 1.55;
+}
+
+.section-description {
+  color: #b7b0a7;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.eyebrow,
+.brand-text small,
+.nav-links a,
+.service-number,
+.service-card-foot,
+.process-label,
+.project-type,
+.project-concept,
+.project-tags span,
+.project-art-label,
+.project-scroll-hint,
+.service-scroll-hint,
+.contact-card-label,
+.contact-social > p,
+.form-field label,
+.form-note,
+.form-status,
+.footer-inner > p,
+.back-to-top,
+.marquee-item,
+.window-path,
+.live-pill,
+.code-line,
+.code-panel-head,
+.preview-kicker,
+.preview-button,
+.ownership-float small,
+.ship-float small,
+.about-monogram small {
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-weight: 400;
+  letter-spacing: 0.09em;
+}
+
+.eyebrow,
+.contact-card-label,
+.contact-social > p {
+  color: var(--paper-dim);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+
+.eyebrow-mark {
+  width: 6px;
+  height: 6px;
+  border-radius: 0;
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(195, 154, 98, 0.55);
+  transform: rotate(45deg);
+}
+
+.site-header {
+  background: rgba(25, 34, 42, 0.84);
+  backdrop-filter: blur(18px) saturate(110%);
+  -webkit-backdrop-filter: blur(18px) saturate(110%);
+}
+
+.brand-mark {
+  border-color: rgba(195, 154, 98, 0.55);
+  border-radius: 2px;
+  background: linear-gradient(145deg, rgba(195, 154, 98, 0.16), rgba(195, 154, 98, 0.035));
+  color: var(--paper);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 18px;
+}
+
+.brand-text strong {
+  color: var(--paper);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.brand-text small { color: var(--paper-dim); font-size: 8px; }
+.nav-links a { color: #c1b8aa; font-size: 10px; text-transform: uppercase; }
+.nav-links a:hover { color: var(--accent-bright); }
+.nav-links a::after { background: var(--accent); }
+
+.button,
+.nav-cta,
+.project-cta,
+.back-to-top {
+  position: relative;
+  border-radius: 2px;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.button {
+  min-height: 50px;
+  border-radius: 2px;
+  padding-inline: 21px;
+  box-shadow: 0 3px 0 rgba(8, 12, 15, 0.4), 0 13px 28px rgba(6, 10, 13, 0.18);
+}
+
+.button::after {
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(255, 240, 211, 0.22);
+  content: "";
+  pointer-events: none;
+}
+
+.button-primary {
+  border-color: #8e6d46;
+  background: linear-gradient(145deg, #d1ab73, #ad804c);
+  color: #20252a;
+  text-shadow: none;
+}
+
+.button-primary:hover {
+  border-color: var(--accent-bright);
+  background: linear-gradient(145deg, #e4c18a, #bb8f58);
+  box-shadow: 0 4px 0 rgba(8, 12, 15, 0.45), 0 15px 32px rgba(195, 154, 98, 0.2);
+}
+
+.button:active { transform: translateY(2px); box-shadow: 0 1px 0 rgba(8, 12, 15, 0.45); }
+.button-secondary,
+.nav-cta {
+  border: 1px solid rgba(215, 194, 163, 0.4);
+  background: linear-gradient(145deg, rgba(53, 65, 74, 0.75), rgba(27, 37, 45, 0.78));
+  color: var(--paper);
+}
+
+.button-secondary:hover,
+.nav-cta:hover {
+  border-color: var(--accent-bright);
+  background: linear-gradient(145deg, rgba(76, 78, 77, 0.8), rgba(37, 46, 51, 0.85));
+  color: var(--accent-bright);
+}
+
+.nav-cta { min-height: 38px; padding-inline: 14px; box-shadow: 0 2px 0 rgba(8, 12, 15, 0.35); }
+
+.section-services,
+.section-process,
+.section-work,
+.section-about,
+.section-contact,
+.capability-marquee,
+.site-footer,
+.hero-section {
+  background: transparent;
+}
+
+.capability-marquee {
+  border: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.marquee-window { padding-block: 22px; }
+.marquee-item { color: rgba(221, 207, 183, 0.72); font-size: 9px; }
+.marquee-spark { color: var(--accent-bright); }
+
+.glass-panel,
+.service-card,
+.process-item,
+.project-card,
+.contact-card,
+.contact-form,
+.process-stamp,
+.about-monogram {
+  border: 1px solid rgba(218, 199, 169, 0.28);
+  border-radius: 3px;
+  background-color: rgba(36, 48, 57, 0.68);
+  background-image: linear-gradient(135deg, rgba(225, 210, 184, 0.09), rgba(26, 37, 46, 0.16) 55%, rgba(195, 154, 98, 0.055)), var(--grain);
+  background-size: auto, 140px 140px;
+  box-shadow:
+    inset 0 0 0 1px rgba(234, 216, 183, 0.1),
+    inset 0 0 0 4px rgba(18, 28, 35, 0.18),
+    0 20px 55px rgba(7, 11, 15, 0.28);
+  backdrop-filter: blur(13px) saturate(94%);
+  -webkit-backdrop-filter: blur(13px) saturate(94%);
+}
+
+.service-card,
+.process-item,
+.project-card,
+.contact-card,
+.contact-form,
+.process-stamp,
+.about-monogram { overflow: hidden; }
+
+.service-card::before,
+.process-item::after,
+.project-card::after,
+.contact-form::after {
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(224, 199, 157, 0.14);
+  border-radius: 1px;
+  content: "";
+  pointer-events: none;
+}
+
+.service-card::after,
+.process-item::before,
+.project-card::before,
+.contact-form::before {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 12px;
+  height: 12px;
+  border-top: 1px solid rgba(225, 189, 126, 0.55);
+  border-right: 1px solid rgba(225, 189, 126, 0.55);
+  content: "";
+  pointer-events: none;
+}
+
+.service-card::before { inset: 7px; border: 1px solid rgba(224, 199, 157, 0.14); }
+.service-card::after { top: auto; right: 10px; bottom: 10px; width: 12px; height: 12px; border: 0; border-right: 1px solid rgba(225, 189, 126, 0.55); border-bottom: 1px solid rgba(225, 189, 126, 0.55); }
+
+.service-card,
+.process-item,
+.project-card,
+.contact-card,
+.contact-form,
+.process-stamp,
+.about-monogram { position: relative; }
+
+.service-card { background-color: rgba(37, 49, 58, 0.73); }
+.service-card:hover,
+.service-card-link:focus-visible .service-card {
+  border-color: rgba(225, 189, 126, 0.65);
+  background-color: rgba(51, 60, 65, 0.78);
+  transform: translateY(-5px) rotate(-0.3deg);
+}
+.service-icon-wrap {
+  border-color: rgba(195, 154, 98, 0.45);
+  border-radius: 2px;
+  background: rgba(195, 154, 98, 0.09);
+  color: var(--accent-bright);
+}
+.service-card-copy h3,
+.process-copy h3,
+.project-details h3,
+.contact-card h3,
+.principle-card h3 {
+  color: var(--paper);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.service-card-copy h3 { font-size: 25px; }
+.service-card-copy p,
+.process-description,
+.project-description,
+.contact-card > p,
+.principle-card p { color: #bcb3a8; font-size: 15px; line-height: 1.5; }
+.service-card-foot { border-top: 1px dashed rgba(218, 199, 169, 0.28); color: var(--paper-dim); font-size: 9px; }
+.service-number { color: var(--accent-bright); font-size: 10px; }
+
+.service-arrow-controls button,
+.project-arrow-controls button {
+  width: 48px;
+  height: 48px;
+  border: 3px double rgba(216, 190, 148, 0.5);
+  border-radius: 2px;
+  background: rgba(37, 49, 58, 0.68);
+  color: var(--paper);
+}
+.service-arrow-controls button:hover:not(:disabled),
+.project-arrow-controls button:hover:not(:disabled) {
+  border-color: var(--accent-bright);
+  background: rgba(195, 154, 98, 0.16);
+  color: var(--accent-bright);
+}
+
+.process-stamp { background-color: rgba(37, 49, 58, 0.72); }
+.process-stamp strong { color: var(--paper); font-family: "Cormorant Garamond", Georgia, serif; font-size: 18px; font-weight: 600; }
+.process-stamp small { color: var(--paper-dim); font-family: "Courier Prime", monospace; font-size: 9px; }
+.process-progress-track { background: repeating-linear-gradient(to bottom, rgba(195, 154, 98, 0.5) 0 3px, transparent 3px 8px); }
+.process-progress { background: var(--accent-bright); box-shadow: 0 0 12px rgba(195, 154, 98, 0.58); }
+.process-number {
+  border-color: rgba(225, 189, 126, 0.65);
+  border-radius: 2px;
+  background: rgba(38, 50, 59, 0.8);
+  color: var(--accent-bright);
+  font-family: "Courier Prime", monospace;
+}
+.process-item { background-color: rgba(37, 49, 58, 0.64); }
+.process-item:hover { border-color: rgba(225, 189, 126, 0.63); transform: translateX(5px) rotate(-0.2deg); }
+.process-label { color: var(--accent-bright); font-size: 9px; }
+.process-arrow { color: var(--paper-dim); }
+
+.project-card { background-color: rgba(35, 46, 55, 0.72); }
+.project-art {
+  border-radius: 0;
+  background-color: #27333c !important;
+  background-image:
+    linear-gradient(135deg, rgba(24, 32, 40, 0.35), rgba(195, 154, 98, 0.08)),
+    url('/edinburgh-etching.svg') !important;
+  background-position: center, center;
+  background-repeat: no-repeat;
+  background-size: cover, 118% auto;
+  filter: sepia(0.24) grayscale(0.35) contrast(1.12);
+}
+.project-art--dashboard { background-position: center, 68% center; }
+.project-art--assistant { background-position: center, 32% center; }
+.project-art-label { color: rgba(229, 213, 185, 0.74); font-size: 8px; }
+.project-art-orbit { border-color: rgba(225, 189, 126, 0.3); }
+.project-art-orbit::before { border-color: rgba(218, 199, 169, 0.23); }
+.project-art-orbit::after { border-color: rgba(195, 154, 98, 0.3); }
+.project-preview-float { opacity: 0.28; filter: sepia(0.78) grayscale(1) contrast(1.25); mix-blend-mode: screen; }
+.project-details { background: rgba(25, 35, 43, 0.4); }
+.project-type { color: var(--paper-dim); }
+.project-concept { border-color: rgba(225, 189, 126, 0.4); border-radius: 2px; color: var(--accent-bright); }
+.project-tags span,
+.contact-specialties span {
+  border-color: rgba(218, 199, 169, 0.28);
+  border-radius: 0;
+  background: rgba(195, 154, 98, 0.06);
+  color: var(--paper-dim);
+}
+.project-cta {
+  border-color: rgba(195, 154, 98, 0.48);
+  background: rgba(195, 154, 98, 0.1);
+  color: var(--accent-bright);
+}
+.project-cta:hover,
+.project-cta:focus-visible { border-color: var(--accent-bright); background: rgba(195, 154, 98, 0.2); color: var(--paper); }
+
+.about-monogram {
+  border-color: rgba(195, 154, 98, 0.45);
+  background-color: rgba(39, 50, 59, 0.7);
+}
+.about-monogram > span { color: var(--paper); font-size: 66px; }
+.about-monogram > span:nth-child(2) { color: var(--accent-bright); }
+.about-statement {
+  color: #ded1bd;
+  font-size: clamp(21px, 2vw, 28px);
+  line-height: 1.48;
+}
+.about-statement::first-letter,
+.process-intro .section-description::first-letter {
+  float: left;
+  margin: 0.08em 0.12em 0 0;
+  color: var(--accent-bright);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 4.8em;
+  font-weight: 600;
+  line-height: 0.68;
+  text-shadow: 1px 1px 0 rgba(24, 30, 35, 0.7);
+}
+.principles-grid { border-top-color: rgba(218, 199, 169, 0.28); }
+.principle-card { border-bottom-color: rgba(218, 199, 169, 0.23); }
+.principle-card > span { color: var(--accent-bright); }
+
+.contact-card,
+.contact-form { background-color: rgba(36, 48, 57, 0.75); }
+.contact-card-label { color: var(--accent-bright); }
+.contact-card h3 { font-size: clamp(35px, 4vw, 54px); }
+.contact-specialties span { font-family: "Courier Prime", monospace; font-size: 9px; }
+.contact-form { background-color: rgba(31, 43, 52, 0.78); }
+.form-field label { color: var(--paper-dim); font-size: 10px; text-transform: uppercase; }
+.form-field input,
+.form-field textarea {
+  border-color: rgba(218, 199, 169, 0.3);
+  border-radius: 2px;
+  background: rgba(22, 32, 40, 0.52);
+  color: var(--paper);
+  font-family: "Courier Prime", monospace;
+  font-size: 12px;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: rgba(201, 192, 179, 0.56); }
+.form-field input:focus,
+.form-field textarea:focus { border-color: var(--accent-bright); background: rgba(34, 45, 53, 0.72); }
+.form-note { color: var(--paper-dim); font-size: 9px; }
+
+.site-footer { background: transparent; }
+.footer-brand { color: var(--paper); font-family: "Cormorant Garamond", Georgia, serif; font-size: 22px; }
+.footer-brand span { color: var(--accent-bright); }
+.footer-inner > p { color: var(--paper-dim); font-size: 9px; }
+.back-to-top { color: var(--paper-dim); }
+
+.social-links a {
+  border-color: rgba(218, 199, 169, 0.3);
+  border-radius: 2px;
+  background: rgba(37, 49, 58, 0.55);
+  color: var(--paper-dim);
+}
+.social-links a:hover { border-color: var(--accent-bright); background: rgba(195, 154, 98, 0.14); color: var(--accent-bright); }
+
+.hero-art-stage {
+  overflow: hidden;
+  border: 1px solid rgba(218, 199, 169, 0.38);
+  border-radius: 3px;
+  background-color: #293741;
+  background-image:
+    linear-gradient(135deg, rgba(18, 27, 34, 0.2), rgba(195, 154, 98, 0.08)),
+    url('/edinburgh-etching.svg');
+  background-position: center, center;
+  background-repeat: no-repeat;
+  background-size: cover, 122% auto;
+  box-shadow:
+    inset 0 0 0 1px rgba(237, 217, 182, 0.12),
+    inset 0 0 0 6px rgba(15, 23, 30, 0.2),
+    0 30px 80px rgba(7, 11, 15, 0.42);
+}
+.hero-art-stage::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: var(--grain);
+  background-size: 130px 130px;
+  content: "";
+  opacity: 0.32;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+.hero-art-glow {
+  background: radial-gradient(circle, rgba(213, 174, 112, 0.18), rgba(121, 135, 150, 0.12) 36%, transparent 74%);
+  filter: blur(25px);
+}
+.edinburgh-architecture {
+  opacity: 0.43;
+  filter: grayscale(0.8) sepia(0.42) contrast(1.22);
+  mix-blend-mode: screen;
+}
+.edinburgh-art-note {
+  border-radius: 2px;
+  border-color: rgba(218, 199, 169, 0.48);
+  background: rgba(27, 37, 45, 0.8);
+  box-shadow: inset 0 0 0 3px rgba(195, 154, 98, 0.08), 0 12px 32px rgba(7, 11, 15, 0.35);
+}
+.edinburgh-art-note strong { color: var(--paper); font-family: "Cormorant Garamond", Georgia, serif; font-size: 22px; }
+.edinburgh-art-note__mark,
+.edinburgh-art-note small { color: var(--accent-bright); font-family: "Courier Prime", monospace; }
+
+.build-window {
+  border-color: rgba(218, 199, 169, 0.35);
+  border-radius: 3px;
+  background-color: rgba(22, 32, 40, 0.9);
+  background-image: linear-gradient(145deg, rgba(225, 210, 184, 0.08), rgba(19, 28, 36, 0.2)), var(--grain);
+  background-size: auto, 140px 140px;
+}
+.build-window-bar,
+.build-window-footer { border-color: rgba(218, 199, 169, 0.22); background: rgba(225, 210, 184, 0.035); }
+.code-line,
+.code-panel-head,
+.window-path,
+.live-pill { color: #c8bda9; font-family: "Courier Prime", monospace; }
+.code-keyword { color: #d0a66e; }
+.code-string { color: #b8c29e; }
+.code-bool { color: #d8b783; }
+.code-comment { color: #78858a; }
+.preview-card { border-color: rgba(218, 199, 169, 0.23); background: linear-gradient(115deg, rgba(64, 72, 77, 0.8), rgba(33, 45, 53, 0.9)); }
+.preview-copy strong { color: var(--paper); font-family: "Cormorant Garamond", Georgia, serif; font-size: 23px; font-weight: 600; }
+.preview-button { color: var(--accent-bright); }
+.ownership-float,
+.ship-float { border-radius: 2px; border-color: rgba(218, 199, 169, 0.38); background: rgba(30, 42, 51, 0.88); }
+.float-icon,
+.ship-icon { border-radius: 2px; background: rgba(195, 154, 98, 0.16); color: var(--accent-bright); }
+
+.scroll-atmosphere__field--heather {
+  background: radial-gradient(circle, rgba(126, 137, 151, 0.14), rgba(126, 137, 151, 0) 70%);
+}
+.scroll-atmosphere__field--sandstone {
+  background: radial-gradient(circle, rgba(195, 154, 98, 0.1), rgba(195, 154, 98, 0) 70%);
+}
+.scroll-atmosphere__mist {
+  border-color: rgba(225, 210, 184, 0.07);
+  background: linear-gradient(90deg, transparent, rgba(225, 210, 184, 0.07), transparent);
+}
+
+.section-scroll-decor {
+  border-color: rgba(218, 199, 169, 0.1);
+  mix-blend-mode: soft-light;
+}
+.section-scroll-decor--services { background: radial-gradient(circle at 45% 45%, rgba(126, 137, 151, 0.1), transparent 62%); }
+.section-scroll-decor--process { background: radial-gradient(circle, rgba(195, 154, 98, 0.08), transparent 68%); }
+.section-scroll-decor--work { background: radial-gradient(circle, rgba(126, 137, 151, 0.1), transparent 66%); }
+.section-scroll-decor--about { background: linear-gradient(145deg, rgba(225, 210, 184, 0.06), rgba(126, 137, 151, 0.06)); }
+.section-scroll-decor--contact { background: radial-gradient(circle at 50% 50%, rgba(195, 154, 98, 0.09), transparent 68%); }
+.section-scroll-decor--services::after,
+.section-scroll-decor--contact::after { border-top-color: rgba(225, 189, 126, 0.18); }
+
+@media (max-width: 700px) {
+  .hero-copy h1 { font-size: clamp(3.7rem, 16vw, 5.8rem); }
+  .section-heading h2 { font-size: clamp(2.8rem, 13vw, 4.2rem); }
+  .hero-lede { font-size: 18px; }
+  .section-description { font-size: 17px; }
+  .about-statement { font-size: 24px; }
+  .project-preview-float { opacity: 0.2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after { animation: none; }
+}
+
+/* Keep the tactile treatment above the older per-component skins. */
+.glass-panel,
+.service-card.glass-panel,
+.process-stamp.glass-panel,
+.contact-card.glass-panel,
+.contact-form.glass-panel,
+.about-monogram.glass-panel {
+  background-color: rgba(36, 48, 57, 0.68);
+  background-image: linear-gradient(135deg, rgba(225, 210, 184, 0.09), rgba(26, 37, 46, 0.16) 55%, rgba(195, 154, 98, 0.055)), var(--grain);
+  background-size: auto, 140px 140px;
+}
+
+.service-card.glass-panel { background-color: rgba(37, 49, 58, 0.73); }
+.process-stamp.glass-panel { background-color: rgba(37, 49, 58, 0.72); }
+.contact-card.glass-panel,
+.contact-form.glass-panel { background-color: rgba(36, 48, 57, 0.75); }
+.about-monogram.glass-panel { background-color: rgba(39, 50, 59, 0.7); }
+.project-card { background: linear-gradient(135deg, rgba(225, 210, 184, 0.07), rgba(25, 36, 44, 0.7) 58%, rgba(195, 154, 98, 0.06)), var(--grain); background-size: auto, 140px 140px; }
+
+/* Preserve the elevated artwork silhouette while keeping the frames tactile. */
+.project-card,
+.hero-art-stage { overflow: visible; }

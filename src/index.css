@@ -3566,3 +3566,66 @@ button,
     animation: none !important;
   }
 }
+
+/* Lift the visual assets out of the card surfaces: they should read as placed objects. */
+.service-card,
+.project-card {
+  transform-style: preserve-3d;
+}
+.service-card-top {
+  position: relative;
+  z-index: 30;
+  transform: translateZ(24px);
+  transform-style: preserve-3d;
+}
+.service-icon-wrap {
+  position: relative;
+  z-index: 40;
+  translate: 0 -8px;
+  box-shadow: 0 16px 28px rgba(8, 12, 15, 0.42), 0 0 24px rgba(195, 154, 98, 0.1);
+}
+.service-icon {
+  position: relative;
+  z-index: 41;
+  filter: drop-shadow(0 5px 8px rgba(5, 8, 10, 0.5));
+}
+.service-card-link:hover .service-icon-wrap,
+.service-card-link:focus-visible .service-icon-wrap {
+  translate: 0 -12px;
+  box-shadow: 0 22px 34px rgba(8, 12, 15, 0.5), 0 0 30px rgba(225, 189, 126, 0.16);
+}
+
+.project-art {
+  position: relative;
+  z-index: 3;
+  transform-style: preserve-3d;
+}
+.project-preview-float {
+  position: relative;
+  z-index: 30 !important;
+  translate: 0 -8px;
+  filter: drop-shadow(0 26px 30px rgba(5, 8, 10, 0.42));
+}
+.mock-studio,
+.mock-dashboard,
+.mock-chat {
+  position: relative;
+  z-index: 40 !important;
+  translate: 0 -8px;
+  filter: drop-shadow(0 28px 34px rgba(5, 8, 10, 0.48));
+}
+.project-art-orbit {
+  z-index: 8;
+  translate: 0 -4px;
+  filter: drop-shadow(0 14px 22px rgba(5, 8, 10, 0.28));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card-top,
+  .service-icon-wrap,
+  .project-preview-float,
+  .mock-studio,
+  .mock-dashboard,
+  .mock-chat,
+  .project-art-orbit { translate: none; }
+}

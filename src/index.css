@@ -3248,3 +3248,159 @@ button,
   .background-marquee .marquee-track { animation: none; }
   .gsap-reveal { will-change: auto; }
 }
+
+/* Detached final chapters: the last two sections sit above the atmospheric plane. */
+.about-layout,
+.contact-layout {
+  position: relative;
+  z-index: 5;
+}
+.about-content-reveal,
+.contact-aside,
+.contact-form-wrap {
+  position: relative;
+  z-index: 10;
+}
+
+.floating-card {
+  position: relative;
+  z-index: 10;
+  transform: translateY(-10px);
+  border: 1px solid rgba(232, 227, 211, 0.1);
+  border-radius: 12px;
+  background: rgba(42, 44, 46, 0.85);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(194, 163, 112, 0.05);
+  backdrop-filter: blur(10px) saturate(112%);
+  -webkit-backdrop-filter: blur(10px) saturate(112%);
+}
+.about-content.floating-card,
+.about-monogram.floating-card,
+.contact-card.floating-card,
+.contact-form.floating-card {
+  border-color: rgba(232, 227, 211, 0.1);
+  background: rgba(42, 44, 46, 0.85);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(194, 163, 112, 0.05);
+}
+.about-content.floating-card {
+  padding: clamp(28px, 4.4vw, 58px);
+  overflow: visible;
+}
+.about-monogram.floating-card { transform: translateY(-10px) rotate(-1.5deg); }
+.contact-card.floating-card,
+.contact-form.floating-card {
+  transform: translateY(-10px);
+}
+.contact-card.floating-card::before,
+.contact-form.floating-card::before,
+.contact-form.floating-card::after {
+  display: none;
+}
+
+/* The paragraph is split into clipped line masks by useLineReveal(). */
+.about-copy-line {
+  display: block;
+  will-change: transform, opacity;
+}
+.about-copy-line-mask {
+  display: block;
+  overflow: clip;
+}
+
+/* Floating navigation: compact, translucent, and direction-aware. */
+.site-header {
+  position: sticky;
+  top: 14px;
+  width: min(calc(100% - 32px), 1240px);
+  margin: 14px auto 0;
+  border: 1px solid rgba(232, 227, 211, 0.16);
+  border-radius: 999px;
+  background: rgba(30, 35, 39, 0.78);
+  box-shadow: 0 16px 38px rgba(7, 10, 13, 0.28), 0 0 30px rgba(194, 163, 112, 0.04);
+  backdrop-filter: blur(18px) saturate(125%);
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
+  transition: transform 620ms cubic-bezier(0.19, 1, 0.22, 1), background 260ms ease, box-shadow 260ms ease;
+}
+.site-header--hidden {
+  transform: translate3d(0, -145%, 0);
+}
+.site-header .nav-shell {
+  height: 66px;
+  padding-right: clamp(18px, 2.4vw, 32px);
+  padding-left: clamp(18px, 2.4vw, 32px);
+}
+.site-header .brand-mark { border-radius: 50%; }
+.site-header .nav-links a {
+  padding: 8px 0 12px;
+  color: #c1b8aa;
+}
+.site-header .nav-links a::after {
+  right: -2px;
+  bottom: 2px;
+  left: -2px;
+  height: 10px;
+  transform: rotate(-1deg) scaleX(1);
+  transform-origin: left center;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12'%3E%3Cpath d='M2 8 C22 3 42 10 63 6 S96 4 118 7' fill='none' stroke='%23e1bd7e' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  transition: opacity 180ms ease;
+}
+.site-header .nav-links a:hover,
+.site-header .nav-links a:focus-visible { color: var(--accent-bright); }
+.site-header .nav-links a:hover::after,
+.site-header .nav-links a:focus-visible::after {
+  opacity: 1;
+  animation: nav-ink-stroke 720ms cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+@keyframes nav-ink-stroke {
+  0% { clip-path: inset(0 100% 0 0); transform: rotate(-2deg) scaleX(0.72); }
+  64% { clip-path: inset(0 0 0 0); transform: rotate(1deg) scaleX(1.04); }
+  100% { clip-path: inset(0 0 0 0); transform: rotate(-1deg) scaleX(1); }
+}
+.site-header .nav-cta {
+  border-radius: 999px;
+  background: rgba(195, 154, 98, 0.1);
+  box-shadow: none;
+}
+.site-header .nav-cta:hover { background: rgba(195, 154, 98, 0.2); }
+
+@media (max-width: 700px) {
+  .site-header {
+    top: 10px;
+    width: calc(100% - 20px);
+    margin-top: 10px;
+    border-radius: 24px;
+  }
+  .site-header .nav-shell { height: 62px; padding-right: 14px; padding-left: 14px; }
+  .site-header .nav-menu {
+    top: calc(100% + 9px);
+    right: 0;
+    left: 0;
+    padding: 14px;
+    border: 1px solid rgba(232, 227, 211, 0.14);
+    border-radius: 18px;
+    background: rgba(30, 35, 39, 0.96);
+    box-shadow: 0 18px 38px rgba(7, 10, 13, 0.4);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+  .site-header .nav-links a { padding: 13px 3px; }
+  .site-header .nav-links a::after { display: none; }
+  .about-content.floating-card { padding: 27px 22px 25px; }
+  .about-monogram.floating-card { transform: translateY(-7px) rotate(-1deg); }
+  .contact-card.floating-card,
+  .contact-form.floating-card { transform: translateY(-7px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-header--hidden { transform: none; transition: none; }
+  .site-header .nav-links a:hover::after,
+  .site-header .nav-links a:focus-visible::after { animation: none; clip-path: inset(0 0 0 0); }
+  .floating-card,
+  .about-content.floating-card,
+  .about-monogram.floating-card,
+  .contact-card.floating-card,
+  .contact-form.floating-card { transform: none; }
+  .about-copy-line { will-change: auto; }
+}

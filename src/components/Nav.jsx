@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight, MenuIcon } from './Icons.jsx'
 
 const links = [
@@ -10,13 +10,43 @@ const links = [
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [isHidden, setIsHidden] = useState(false)
+  const previousScrollY = useRef(0)
+
+  useEffect(() => {
+    previousScrollY.current = window.scrollY
+    let frame = 0
+
+    function handleScroll() {
+      if (frame) return
+      frame = window.requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY
+        const delta = currentScrollY - previousScrollY.current
+
+        if (menuOpen || currentScrollY <= 24 || delta < -4) {
+          setIsHidden(false)
+        } else if (delta > 4) {
+          setIsHidden(true)
+        }
+
+        previousScrollY.current = currentScrollY
+        frame = 0
+      })
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.cancelAnimationFrame(frame)
+    }
+  }, [menuOpen])
 
   function closeMenu() {
     setMenuOpen(false)
   }
 
   return (
-    <header className="site-header">
+    <header className={`site-header${isHidden ? ' site-header--hidden' : ''}`}>
       <nav className="site-container nav-shell" aria-label="Main navigation">
         <a className="brand" href="#home" onClick={closeMenu} aria-label="Soumallo Deb, home">
           <span className="brand-mark">S<span>D</span><i>.</i></span>

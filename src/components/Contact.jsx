@@ -1,5 +1,7 @@
-import { useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import { motion, useTransform } from 'framer-motion'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Reveal from './Reveal.jsx'
 import SectionHeading from './SectionHeading.jsx'
 import useSectionMotion from '../hooks/useSectionMotion.js'
@@ -7,15 +9,44 @@ import SocialLinks from './SocialLinks.jsx'
 import { ArrowUpRight, ArrowRight } from './Icons.jsx'
 import InkBleed from './InkBleed.jsx'
 
+gsap.registerPlugin(ScrollTrigger)
+
 // Replace YOUR_FORM_ID with the ID from your Formspree project before launch.
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'
 
 export default function Contact() {
   const { sectionRef, progress, shouldReduceMotion } = useSectionMotion()
+  const formRef = useRef(null)
   const contactDrift = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [-44, 58])
   const contactRotate = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [-3, 5])
   const [status, setStatus] = useState({ type: 'idle', message: '' })
   const [isSending, setIsSending] = useState(false)
+
+  useLayoutEffect(() => {
+    if (shouldReduceMotion || !formRef.current) return undefined
+
+    const context = gsap.context(() => {
+      gsap.fromTo(
+        '.form-field',
+        { autoAlpha: 0, y: 26 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.9,
+          delay: 0.18,
+          stagger: 0.14,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: formRef.current,
+            start: 'top 82%',
+            once: true,
+          },
+        },
+      )
+    }, formRef)
+
+    return () => context.revert()
+  }, [shouldReduceMotion])
 
   async function handleSubmit(event) {
     event.preventDefault()
@@ -72,7 +103,7 @@ export default function Contact() {
 
         <div className="contact-layout">
           <Reveal className="contact-aside" delay={0.06}>
-            <div className="contact-card glass-panel">
+            <div className="contact-card glass-panel floating-card">
               <span className="contact-card-label"><i /> OPEN TO GOOD STORIES</span>
               <h3>Have a feeling<br />in mind?</h3>
               <p>Whether it’s a new identity, an expressive website, or a curious digital object, let’s start with a conversation.</p>
@@ -97,7 +128,8 @@ export default function Contact() {
 
           <Reveal className="contact-form-wrap" delay={0.12}>
             <form
-              className="contact-form glass-panel"
+              ref={formRef}
+              className="contact-form glass-panel floating-card"
               action={FORMSPREE_ENDPOINT}
               method="POST"
               onSubmit={handleSubmit}

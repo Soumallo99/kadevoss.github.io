@@ -15,7 +15,8 @@ export default function useKineticSplit(targetRef, { start = 'top 86%', delay = 
     let split
     const context = gsap.context(() => {
       split = SplitText.create(targetRef.current, {
-        type: 'chars',
+        type: 'words,chars',
+        wordsClass: 'kinetic-word',
         charsClass: 'kinetic-char',
       })
 

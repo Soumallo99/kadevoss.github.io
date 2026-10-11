@@ -3962,3 +3962,41 @@ button,
     animation: none !important;
   }
 }
+
+/* Organic pass 2: remove the remaining rectangular frames.
+   Hero art, project cards, and the split headings no longer read as boxes. */
+.hero-art-stage {
+  border: 0 !important;
+  border-radius: 32px !important;
+  background-color: rgba(41, 55, 65, 0.5) !important;
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  box-shadow: 0 50px 110px -32px rgba(3, 6, 9, 0.78), inset 0 1px 0 rgba(255, 240, 220, 0.08) !important;
+}
+.project-card {
+  border-radius: 28px !important;
+  border-color: rgba(218, 199, 169, 0.12) !important;
+  background-color: rgba(30, 40, 48, 0.5) !important;
+  backdrop-filter: blur(14px) saturate(115%);
+  -webkit-backdrop-filter: blur(14px) saturate(115%);
+  box-shadow: 0 40px 90px -30px rgba(3, 6, 9, 0.7) !important;
+}
+.project-art {
+  border-radius: 28px 0 0 28px !important;
+}
+.project-details {
+  background: transparent !important;
+}
+.service-card {
+  border-radius: 26px;
+  border-color: rgba(218, 199, 169, 0.1) !important;
+}
+@media (max-width: 700px) {
+  .project-art { border-radius: 28px 28px 0 0 !important; }
+}
+
+/* Keep each split word on one line so headings can't break mid-word. */
+.kinetic-word {
+  display: inline-block;
+  white-space: nowrap;
+}

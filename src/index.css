@@ -2744,3 +2744,44 @@ h6,
 /* Preserve the elevated artwork silhouette while keeping the frames tactile. */
 .project-card,
 .hero-art-stage { overflow: visible; }
+
+/* Type scale refinement: give the supporting copy enough presence beside the engraved heads. */
+.brand-text small { font-size: 9px; }
+.nav-links a { font-size: 11px; }
+.button,
+.nav-cta,
+.project-cta,
+.back-to-top { font-size: 11px; }
+.hero-proof span,
+.hero-scroll,
+.hero-index { font-size: 10px; }
+.marquee-item { font-size: 10px; }
+.service-scroll-hint,
+.project-scroll-hint { font-size: 11px; }
+.service-card-foot { font-size: 10px; }
+.process-label { font-size: 10px; }
+.process-description,
+.service-card-copy p,
+.project-description,
+.contact-card > p,
+.principle-card p { font-size: 16px; }
+.principle-card h3 { font-size: 20px; }
+.project-type,
+.project-concept,
+.project-tags span { font-size: 10px; }
+.project-art-label { font-size: 9px; }
+.contact-specialties span { font-size: 10px; }
+.form-field label { font-size: 11px; }
+.form-field input,
+.form-field textarea { font-size: 13px; }
+.form-note,
+.footer-inner > p { font-size: 10px; }
+.about-monogram small { font-size: 7px; }
+.edinburgh-art-note small { font-size: 8px; }
+.window-path { font-size: 10px; }
+.live-pill { font-size: 8px; }
+.code-line { font-size: 10px; }
+.preview-kicker,
+.preview-button { font-size: 8px; }
+.ownership-float small,
+.ship-float small { font-size: 8px; }

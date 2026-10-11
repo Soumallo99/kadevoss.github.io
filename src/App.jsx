@@ -21,11 +21,12 @@ function DeferredWebGLFog() {
         if (!cancelled) setFog(() => FogLayer)
       })
     }
-    const idleId = window.requestIdleCallback ? window.requestIdleCallback(loadFog, { timeout: 900 }) : window.setTimeout(loadFog, 240)
+    const usesIdleCallback = typeof window.requestIdleCallback === 'function'
+    const idleId = usesIdleCallback ? window.requestIdleCallback(loadFog, { timeout: 900 }) : window.setTimeout(loadFog, 240)
 
     return () => {
       cancelled = true
-      if (window.cancelIdleCallback && typeof idleId === 'number') window.cancelIdleCallback(idleId)
+      if (usesIdleCallback) window.cancelIdleCallback(idleId)
       else window.clearTimeout(idleId)
     }
   }, [])

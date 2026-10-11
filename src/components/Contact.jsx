@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { motion, useTransform } from 'framer-motion'
 import Reveal from './Reveal.jsx'
 import SectionHeading from './SectionHeading.jsx'
+import useSectionMotion from '../hooks/useSectionMotion.js'
 import SocialLinks from './SocialLinks.jsx'
 import { ArrowUpRight, ArrowRight } from './Icons.jsx'
 
@@ -8,6 +10,9 @@ import { ArrowUpRight, ArrowRight } from './Icons.jsx'
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'
 
 export default function Contact() {
+  const { sectionRef, progress, shouldReduceMotion } = useSectionMotion()
+  const contactDrift = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [-44, 58])
+  const contactRotate = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [-3, 5])
   const [status, setStatus] = useState({ type: 'idle', message: '' })
   const [isSending, setIsSending] = useState(false)
 
@@ -45,7 +50,8 @@ export default function Contact() {
   }
 
   return (
-    <section className="section-pad section-contact" id="contact" aria-labelledby="contact-title">
+    <section ref={sectionRef} className="section-pad section-contact" id="contact" aria-labelledby="contact-title">
+      <motion.div className="section-scroll-decor section-scroll-decor--contact" style={{ y: contactDrift, rotate: contactRotate }} aria-hidden="true" />
       <div className="site-container">
         <Reveal variant="clip" y={0}>
           <SectionHeading

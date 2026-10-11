@@ -10,6 +10,7 @@ import {
 import Reveal from './Reveal.jsx'
 import SectionHeading from './SectionHeading.jsx'
 import useHorizontalRail from '../hooks/useHorizontalRail.js'
+import useSectionMotion from '../hooks/useSectionMotion.js'
 import { ArrowRight, ArrowUpRight } from './Icons.jsx'
 
 const projects = [
@@ -177,6 +178,9 @@ function ProjectCard({ project, index, railRef, registerCard }) {
 
 export default function Work() {
   const shouldReduceMotion = useReducedMotion()
+  const { sectionRef, progress } = useSectionMotion()
+  const workDrift = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [-38, 48])
+  const workRotate = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [-4, 4])
   const {
     railRef,
     itemRefs: cardRefs,
@@ -189,7 +193,8 @@ export default function Work() {
 
 
   return (
-    <section className="section-pad section-work" id="work" aria-labelledby="work-title">
+    <section ref={sectionRef} className="section-pad section-work" id="work" aria-labelledby="work-title">
+      <motion.div className="section-scroll-decor section-scroll-decor--work" style={{ y: workDrift, rotate: workRotate }} aria-hidden="true" />
       <div className="site-container">
         <div className="work-header">
           <Reveal variant="clip" y={0}>

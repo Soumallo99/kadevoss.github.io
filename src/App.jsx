@@ -7,11 +7,13 @@ import Work from './components/Work.jsx'
 import About from './components/About.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
+import ScrollAtmosphere from './components/ScrollAtmosphere.jsx'
 
 export default function App() {
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to content</a>
+      <ScrollAtmosphere />
       <Nav />
       <main id="main-content">
         <Hero />

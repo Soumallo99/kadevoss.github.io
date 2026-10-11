@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import Reveal from './Reveal.jsx'
 import SectionHeading from './SectionHeading.jsx'
+import useSectionMotion from '../hooks/useSectionMotion.js'
 
 const steps = [
   {
@@ -62,8 +63,13 @@ function ProcessTimeline() {
 }
 
 export default function Process() {
+  const { sectionRef, progress, shouldReduceMotion } = useSectionMotion()
+  const processDrift = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [48, -56])
+  const processRotate = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [4, -5])
+
   return (
-    <section className="section-pad section-process" id="process" aria-labelledby="process-title">
+    <section ref={sectionRef} className="section-pad section-process" id="process" aria-labelledby="process-title">
+      <motion.div className="section-scroll-decor section-scroll-decor--process" style={{ y: processDrift, rotate: processRotate }} aria-hidden="true" />
       <div className="site-container process-layout">
         <Reveal className="process-intro">
           <SectionHeading

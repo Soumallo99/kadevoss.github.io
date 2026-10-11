@@ -1,8 +1,9 @@
-import { useCallback } from 'react'
-import { useReducedMotion } from 'framer-motion'
+import { useCallback, useRef } from 'react'
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
 import Reveal from './Reveal.jsx'
 import SectionHeading from './SectionHeading.jsx'
 import useHorizontalRail from '../hooks/useHorizontalRail.js'
+import useSectionMotion from '../hooks/useSectionMotion.js'
 import { ArrowRight, ArrowUpRight, ServiceIcon } from './Icons.jsx'
 
 const services = [
@@ -57,12 +58,25 @@ const services = [
   },
 ]
 
-function ServiceCard({ service, index, registerItem }) {
-  const setItemRef = useCallback((node) => registerItem(index, node), [index, registerItem])
+function ServiceCard({ service, index, registerItem, railRef, shouldReduceMotion }) {
+  const itemNodeRef = useRef(null)
+  const setItemRef = useCallback((node) => {
+    itemNodeRef.current = node
+    registerItem(index, node)
+  }, [index, registerItem])
+  const { scrollXProgress } = useScroll({
+    container: railRef,
+    target: itemNodeRef,
+    axis: 'x',
+    offset: ['start end', 'end start'],
+  })
+  const smoothCardProgress = useSpring(scrollXProgress, shouldReduceMotion ? { stiffness: 1000, damping: 100 } : { stiffness: 230, damping: 34, mass: 0.35 })
+  const cardDrift = useTransform(smoothCardProgress, [0, 0.5, 1], shouldReduceMotion ? [0, 0, 0] : [16, 0, -16])
+  const cardRotate = useTransform(smoothCardProgress, [0, 0.5, 1], shouldReduceMotion ? [0, 0, 0] : [2.5, 0, -2.5])
 
   return (
     <Reveal delay={index * 0.06} className="service-reveal" variant="zoom">
-      <a ref={setItemRef} className="service-card-link" href="#contact" aria-label={`Talk about ${service.title}`}>
+      <motion.a ref={setItemRef} className="service-card-link" href="#contact" aria-label={`Talk about ${service.title}`} style={{ y: cardDrift, rotate: cardRotate }}>
         <article className="service-card glass-panel">
           <div className="service-card-top">
             <span className="service-icon-wrap"><ServiceIcon type={service.icon} className="service-icon" /></span>
@@ -77,17 +91,21 @@ function ServiceCard({ service, index, registerItem }) {
             <ArrowUpRight className="service-card-arrow" />
           </div>
         </article>
-      </a>
+      </motion.a>
     </Reveal>
   )
 }
 
 export default function Services() {
-  const shouldReduceMotion = useReducedMotion()
+  const { sectionRef, progress, shouldReduceMotion } = useSectionMotion()
+  const serviceDrift = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [-42, 52])
+  const serviceRotate = useTransform(progress, [0, 1], shouldReduceMotion ? [0, 0] : [-5, 5])
+  const serviceGlow = useTransform(progress, [0, 1], shouldReduceMotion ? [0.22, 0.22] : [0.12, 0.4])
   const { railRef, activeIndex, registerItem, handleScroll, handleKeyDown, scrollToIndex } = useHorizontalRail(shouldReduceMotion)
 
   return (
-    <section className="section-pad section-services" id="services" aria-labelledby="services-title">
+    <section ref={sectionRef} className="section-pad section-services" id="services" aria-labelledby="services-title">
+      <motion.div className="section-scroll-decor section-scroll-decor--services" style={{ y: serviceDrift, rotate: serviceRotate, opacity: serviceGlow }} aria-hidden="true" />
       <div className="site-container">
         <div className="services-header">
           <Reveal variant="clip" y={0}>
@@ -124,7 +142,7 @@ export default function Services() {
           onKeyDown={handleKeyDown}
         >
           {services.map((service, index) => (
-            <ServiceCard key={service.number} service={service} index={index} registerItem={registerItem} />
+            <ServiceCard key={service.number} service={service} index={index} registerItem={registerItem} railRef={railRef} shouldReduceMotion={shouldReduceMotion} />
           ))}
         </div>
       </div>

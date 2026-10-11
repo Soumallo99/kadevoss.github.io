@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion'
+import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion'
 import Reveal from './Reveal.jsx'
 import { ArrowDown, ArrowRight } from './Icons.jsx'
 
@@ -29,6 +29,12 @@ const codeLines = [
 export default function Hero() {
   const shouldReduceMotion = useReducedMotion()
   const noMotionVariants = { hidden: {}, visible: {} }
+  const heroRef = useRef(null)
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
+  const smoothScrollProgress = useSpring(scrollYProgress, shouldReduceMotion ? { stiffness: 1000, damping: 100 } : { stiffness: 150, damping: 32, mass: 0.45 })
+  const artScrollY = useTransform(smoothScrollProgress, [0, 1], shouldReduceMotion ? [0, 0] : [-8, 58])
+  const artScrollScale = useTransform(smoothScrollProgress, [0, 1], shouldReduceMotion ? [1, 1] : [1, 0.9])
+  const artScrollRotate = useTransform(smoothScrollProgress, [0, 1], shouldReduceMotion ? [0, 0] : [0, -3])
   const rawRotateX = useMotionValue(0)
   const rawRotateY = useMotionValue(0)
   const rotateX = useSpring(rawRotateX, { stiffness: 120, damping: 20, mass: 0.7 })
@@ -55,7 +61,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="hero-section site-container" id="home" aria-labelledby="hero-title">
+    <section ref={heroRef} className="hero-section site-container" id="home" aria-labelledby="hero-title">
       <div className="hero-layout">
         <motion.div
           className="hero-copy"
@@ -95,7 +101,7 @@ export default function Hero() {
         <Reveal className="hero-art-wrap" delay={0.16} y={28} variant="zoom" amount={0.12}>
           <motion.div
             className="hero-art-stage"
-            style={{ rotateX, rotateY, transformPerspective: 1100 }}
+            style={{ rotateX, rotateY, y: artScrollY, scale: artScrollScale, rotate: artScrollRotate, transformPerspective: 1100 }}
             onPointerEnter={measureArtBounds}
             onPointerMove={handleArtPointerMove}
             onPointerLeave={resetArtTilt}

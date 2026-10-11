@@ -112,17 +112,22 @@ function ProjectCard({ project, index, railRef, registerCard }) {
     registerCard(index, node)
   }, [index, registerCard])
 
-  function measureCardBounds(event) {
-    cardBounds.current = event.currentTarget.getBoundingClientRect()
-  }
-
-  function handlePointerMove(event) {
+  function updateTilt(event) {
     if (shouldReduceMotion || event.pointerType !== 'mouse' || !cardBounds.current) return
     const { left, top, width, height } = cardBounds.current
     const x = (event.clientX - left) / width - 0.5
     const y = (event.clientY - top) / height - 0.5
     rawX.set(-y * 6)
     rawY.set(x * 6)
+  }
+
+  function measureCardBounds(event) {
+    cardBounds.current = event.currentTarget.getBoundingClientRect()
+    updateTilt(event)
+  }
+
+  function handlePointerMove(event) {
+    updateTilt(event)
   }
 
   function resetTilt() {
@@ -141,7 +146,7 @@ function ProjectCard({ project, index, railRef, registerCard }) {
         aria-roledescription="slide"
         aria-label={`${index + 1} of ${projects.length}: ${project.name}`}
         style={{ rotateX, rotateY, transformPerspective: 1200 }}
-        whileHover={shouldReduceMotion ? undefined : { y: -7, scale: 1.012, zIndex: 20 }}
+        whileHover={shouldReduceMotion ? undefined : { y: -13, scale: 1.02, z: 24, zIndex: 20 }}
         whileTap={shouldReduceMotion ? undefined : { scale: 0.995 }}
         transition={{ type: 'spring', stiffness: 230, damping: 25, mass: 0.65 }}
         onPointerEnter={measureCardBounds}

@@ -3702,3 +3702,112 @@ button,
     transform: none !important;
   }
 }
+
+/* Replace the deep 3D recess with a clean, legible lift. The frame moves; its copy stays readable. */
+@keyframes frame-breathe {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -8px; }
+}
+.service-card,
+.project-card {
+  animation: frame-breathe 6s ease-in-out infinite;
+  border-radius: 10px;
+  box-shadow: 0 26px 58px rgba(4, 7, 9, 0.48), 0 0 34px rgba(195, 154, 98, 0.07);
+  transform-style: flat !important;
+}
+.service-card::before,
+.service-card::after,
+.project-card::before,
+.project-card::after {
+  display: none !important;
+}
+.service-card-top {
+  transform: none !important;
+  transform-style: flat !important;
+}
+.service-icon-wrap {
+  translate: none !important;
+  transform: translateY(-12px) scale(1.04) !important;
+  transform-style: flat !important;
+}
+.service-card-link:hover .service-icon-wrap,
+.service-card-link:focus-visible .service-icon-wrap {
+  transform: translateY(-22px) rotate(-5deg) scale(1.12) !important;
+}
+.service-icon {
+  transform: scale(1.08) !important;
+  filter: drop-shadow(0 7px 10px rgba(3, 5, 7, 0.72)) !important;
+}
+.service-card-link:hover .service-icon,
+.service-card-link:focus-visible .service-icon {
+  transform: scale(1.18) rotate(9deg) !important;
+}
+
+.project-art {
+  isolation: auto !important;
+  transform: none !important;
+  transform-style: flat !important;
+  z-index: 3;
+}
+.project-details {
+  z-index: 12;
+  transform: none !important;
+  transform-style: flat !important;
+  backface-visibility: visible !important;
+}
+.project-preview-float {
+  z-index: 20 !important;
+  translate: 0 -14px !important;
+  transform-style: flat !important;
+  filter: drop-shadow(0 30px 34px rgba(3, 5, 7, 0.58)) !important;
+}
+.project-card .mock-studio,
+.project-card .mock-dashboard,
+.project-card .mock-chat {
+  z-index: 22 !important;
+  translate: none !important;
+  transform-style: flat !important;
+  box-shadow: 0 30px 42px -10px rgba(3, 5, 7, 0.72), 0 0 24px rgba(225, 189, 126, 0.08) !important;
+}
+.project-card .mock-studio {
+  transform: translateY(-20px) rotate(-3deg) scale(1.04) !important;
+}
+.project-card .mock-dashboard {
+  transform: translateY(-20px) rotate(2deg) scale(1.04) !important;
+}
+.project-card .mock-chat {
+  transform: translateY(-20px) rotate(-2deg) scale(1.04) !important;
+}
+.project-card:hover .mock-studio,
+.project-card:focus-within .mock-studio,
+.project-card:hover .mock-dashboard,
+.project-card:focus-within .mock-dashboard,
+.project-card:hover .mock-chat,
+.project-card:focus-within .mock-chat {
+  transform: translateY(-36px) rotate(0deg) scale(1.1) !important;
+}
+.project-card .project-art-orbit {
+  transform: translateY(-12px) rotate(-23deg) scaleY(0.72) !important;
+  filter: drop-shadow(0 16px 22px rgba(3, 5, 7, 0.34));
+}
+.project-card:hover .project-art-orbit,
+.project-card:focus-within .project-art-orbit {
+  transform: translateY(-22px) rotate(0deg) scaleY(0.78) scale(1.06) !important;
+}
+
+.service-reveal:nth-child(2n) .service-card,
+.project-reveal:nth-child(2n) .project-card { animation-delay: -2s; }
+.service-reveal:nth-child(3n) .service-card,
+.project-reveal:nth-child(3n) .project-card { animation-delay: -4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .project-card { animation: none !important; translate: none !important; }
+  .service-icon-wrap,
+  .service-icon,
+  .project-preview-float,
+  .project-card .mock-studio,
+  .project-card .mock-dashboard,
+  .project-card .mock-chat,
+  .project-card .project-art-orbit { transform: none !important; translate: none !important; }
+}

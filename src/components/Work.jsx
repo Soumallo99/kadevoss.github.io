@@ -147,7 +147,7 @@ function ProjectCard({ project, index, railRef, registerCard }) {
         aria-roledescription="slide"
         aria-label={`${index + 1} of ${projects.length}: ${project.name}`}
         style={{ rotateX, rotateY, transformPerspective: 1200 }}
-        whileHover={shouldReduceMotion ? undefined : { y: -13, scale: 1.02, z: 24, zIndex: 20 }}
+        whileHover={shouldReduceMotion ? undefined : { y: -13, scale: 1.02, zIndex: 20 }}
         whileTap={shouldReduceMotion ? undefined : { scale: 0.995 }}
         transition={{ type: 'spring', stiffness: 230, damping: 25, mass: 0.65 }}
         onPointerEnter={measureCardBounds}

@@ -3532,3 +3532,37 @@ button,
     animation: none !important;
   }
 }
+
+/* Final containment pass: wrappers stay open while the horizontal rails remain scrollable. */
+.service-reveal,
+.project-reveal,
+.service-card-link {
+  overflow: visible !important;
+}
+.service-reveal:hover,
+.service-reveal:focus-within,
+.project-reveal:hover,
+.project-reveal:focus-within,
+.service-card-link:hover,
+.service-card-link:focus-visible {
+  position: relative;
+  z-index: 50 !important;
+}
+
+.drop-cap {
+  margin-right: 12px !important;
+  margin-bottom: 4px !important;
+}
+
+.contact-card.floating-card {
+  animation: ambientFloat 6s ease-in-out -0.55s infinite !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-card.floating-card,
+  .service-reveal,
+  .project-reveal,
+  .service-card-link {
+    animation: none !important;
+  }
+}

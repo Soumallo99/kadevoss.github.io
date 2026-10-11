@@ -129,7 +129,7 @@ export default function Contact() {
           <Reveal className="contact-form-wrap" delay={0.12}>
             <form
               ref={formRef}
-              className="contact-form glass-panel floating-card"
+              className="contact-form glass-panel floating-card contact-form-container"
               action={FORMSPREE_ENDPOINT}
               method="POST"
               onSubmit={handleSubmit}

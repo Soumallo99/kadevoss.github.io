@@ -17,7 +17,7 @@ export default function About() {
   useLineReveal(statementRef)
 
   return (
-    <section ref={sectionRef} className="section-pad section-about" id="about" aria-labelledby="about-title">
+    <section ref={sectionRef} className="section-pad section-about about-section" id="about" aria-labelledby="about-title">
       <InkBleed className="ink-bleed--about" />
       <div className="site-container about-layout">
         <Reveal className="about-heading">
@@ -35,7 +35,7 @@ export default function About() {
         <Reveal className="about-content-reveal">
           <div className="about-content floating-card">
             <p ref={statementRef} className="about-statement">
-              I&apos;m Soumallo Deb, an artist and creative developer drawn to the space between structure and feeling. I make digital experiences that borrow from Edinburgh&apos;s stone, weather, windows, and winding routes — then turn those references into something unmistakably their own.
+              <span className="drop-cap">I</span>&apos;m Soumallo Deb, an artist and creative developer drawn to the space between structure and feeling. I make digital experiences that borrow from Edinburgh&apos;s stone, weather, windows, and winding routes — then turn those references into something unmistakably their own.
             </p>
             <div className="principles-grid">
               {principles.map((principle, index) => (

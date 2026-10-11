@@ -82,7 +82,7 @@ function ServiceCard({ service, index, registerItem, railRef, shouldReduceMotion
   return (
     <Reveal delay={index * 0.06} className="service-reveal" variant="zoom">
       <motion.a ref={setItemRef} className="service-card-link" href="#contact" aria-label={`Talk about ${service.title}`} style={{ y: cardDrift, rotate: cardRotate }}>
-        <article className="service-card glass-panel">
+        <article className="service-card glass-panel hover-container">
           <div className="service-card-top">
             <span className="service-icon-wrap"><ServiceIcon type={service.icon} className="service-icon" /></span>
             <span className="service-number">{service.number}</span>

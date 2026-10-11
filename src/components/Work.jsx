@@ -141,7 +141,7 @@ function ProjectCard({ project, index, railRef, registerCard }) {
     <Reveal delay={index * 0.1} className="project-reveal" variant="zoom">
       <motion.article
         ref={setCardRef}
-        className="project-card"
+        className="project-card hover-container"
         id={`project-${project.number}`}
         role="group"
         aria-roledescription="slide"

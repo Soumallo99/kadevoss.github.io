@@ -1700,7 +1700,7 @@ body::after {
 .eyebrow { color: #b8aeb3; }
 .eyebrow-mark { background: var(--accent); box-shadow: 0 0 14px rgba(215, 166, 110, 0.72); }
 .hero-section {
-  background: linear-gradient(120deg, rgba(24, 21, 27, 0.12), rgba(215, 166, 110, 0.025));
+  background: transparent;
 }
 .hero-copy h1,
 .section-heading h2,
@@ -1833,7 +1833,7 @@ body::after {
 .edinburgh-art-note strong { color: #eee1d5; font-family: Georgia, 'Times New Roman', serif; font-size: 15px; font-weight: 500; line-height: 1.05; }
 .edinburgh-art-note small { color: #9d929a; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 6px; letter-spacing: 0.13em; }
 
-.capability-marquee { background: linear-gradient(90deg, rgba(155, 134, 170, 0.1), rgba(215, 166, 110, 0.06), rgba(126, 140, 115, 0.08)); }
+.capability-marquee { background: transparent; }
 .marquee-item { color: rgba(235, 222, 211, 0.8); }
 .marquee-spark { color: var(--accent); }
 
@@ -1844,11 +1844,11 @@ body::after {
 .section-contact { border-top: 0; }
 .section-heading h2 { color: #f1e9e4; }
 .section-description { color: #aaa0a4; }
-.section-services { background: radial-gradient(ellipse at 10% 8%, rgba(155, 134, 170, 0.12), transparent 44%), radial-gradient(ellipse at 90% 82%, rgba(215, 166, 110, 0.08), transparent 39%), linear-gradient(180deg, rgba(34, 29, 36, 0.5), rgba(18, 17, 20, 0.12)); }
-.section-process { background: radial-gradient(ellipse at 94% 48%, rgba(155, 134, 170, 0.1), transparent 42%), rgba(18, 17, 20, 0.28); }
-.section-work { background: radial-gradient(ellipse at 78% 8%, rgba(215, 166, 110, 0.08), transparent 38%), linear-gradient(180deg, rgba(30, 26, 32, 0.35), rgba(18, 17, 20, 0.18)); }
-.section-about { background: radial-gradient(ellipse at 12% 80%, rgba(126, 140, 115, 0.09), transparent 48%), rgba(28, 25, 30, 0.28); }
-.section-contact { background: radial-gradient(ellipse at 93% 14%, rgba(155, 134, 170, 0.12), transparent 45%), linear-gradient(180deg, rgba(30, 25, 32, 0.52), rgba(18, 17, 20, 0.68)); }
+.section-services,
+.section-process,
+.section-work,
+.section-about,
+.section-contact { background: transparent; }
 
 .glass-panel {
   border-color: rgba(225, 205, 184, 0.21);
@@ -1952,7 +1952,7 @@ body::after {
 .form-field input, .form-field textarea { border-color: rgba(225, 205, 184, 0.17); background: rgba(12, 10, 14, 0.38); color: #f1e9e4; }
 .form-field input:focus, .form-field textarea:focus { border-color: rgba(215, 166, 110, 0.64); background: rgba(12, 10, 14, 0.64); }
 .form-note { color: #978b91; }
-.site-footer { border-top: 0; background: rgba(12, 10, 14, 0.72); }
+.site-footer { border-top: 0; background: transparent; }
 .footer-brand { color: #f1e7df; }
 .footer-brand span { color: var(--accent); }
 .footer-inner > p { color: #92868e; }

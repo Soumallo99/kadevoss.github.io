@@ -3117,3 +3117,46 @@ button,
 /* About heading: keep the final word as one deliberate engraved line. */
 .about-heading .section-heading h2 { max-width: 5.8em; }
 .about-title-line { display: inline-block; white-space: nowrap; }
+
+.contact-email-link {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 3px 10px;
+  margin-top: 20px;
+  padding: 10px 12px;
+  border: 1px solid rgba(218, 199, 169, 0.3);
+  border-radius: 2px;
+  background: rgba(195, 154, 98, 0.07);
+  color: var(--paper-dim);
+  transition: border-color 280ms ease, background 280ms ease, color 280ms ease;
+}
+.contact-email-link span {
+  grid-column: 1 / -1;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.contact-email-link strong {
+  color: var(--paper);
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.contact-email-link:hover,
+.contact-email-link:focus-visible {
+  border-color: var(--accent-bright);
+  background: rgba(195, 154, 98, 0.16);
+  color: var(--accent-bright);
+}
+.contact-email-link svg { grid-column: 2; grid-row: 2; }
+.form-note a {
+  color: var(--accent-bright);
+  text-decoration: underline;
+  text-decoration-color: rgba(225, 189, 126, 0.5);
+  text-underline-offset: 3px;
+}

@@ -21,10 +21,16 @@ export default function Contact() {
     event.preventDefault()
 
     if (FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID')) {
-      setStatus({
-        type: 'info',
-        message: 'This form is ready to connect. Add your Formspree form ID in Contact.jsx to start receiving messages.',
-      })
+      const formData = new FormData(event.currentTarget)
+      const subject = 'New project enquiry for Soumallo Deb'
+      const body = [
+        `Name: ${formData.get('name') || ''}`,
+        `Email: ${formData.get('email') || ''}`,
+        '',
+        `${formData.get('message') || ''}`,
+      ].join('\n')
+      window.location.href = `mailto:debsoumallo@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+      setStatus({ type: 'info', message: 'Your email app is opening. If it does not, use the direct email link below.' })
       return
     }
 
@@ -70,6 +76,11 @@ export default function Contact() {
               <span className="contact-card-label"><i /> OPEN TO GOOD STORIES</span>
               <h3>Have a feeling<br />in mind?</h3>
               <p>Whether it’s a new identity, an expressive website, or a curious digital object, let’s start with a conversation.</p>
+              <a className="contact-email-link" href="mailto:debsoumallo@gmail.com">
+                <span>Email directly</span>
+                <strong>debsoumallo@gmail.com</strong>
+                <ArrowUpRight className="icon-14" />
+              </a>
               <div className="contact-specialties">
                 <span>Art direction</span>
                 <span>Digital places</span>
@@ -128,7 +139,7 @@ export default function Contact() {
                 />
               </div>
               <div className="form-submit-row">
-                <p className="form-note">Form submissions are handled by Formspree once connected.</p>
+                <p className="form-note">Prefer a direct route? <a href="mailto:debsoumallo@gmail.com">Email debsoumallo@gmail.com</a>. The form opens your email app now; Formspree can be connected for background delivery.</p>
                 <button className="button button-primary form-submit" type="submit" disabled={isSending}>
                   {isSending ? 'Sending…' : 'Send Message'}
                   {isSending ? <ArrowRight className="icon-18" /> : <ArrowUpRight className="icon-18" />}

@@ -46,10 +46,10 @@ The current endpoint is intentionally a placeholder. Until it is replaced, submi
 
 - Replace the three clearly labeled speculative project concepts in `src/components/Work.jsx` with real work when ready. The project rail supports smooth vertical mouse-wheel-to-horizontal scrolling, native touch/trackpad scrolling, arrow controls, and releases control back to the browser’s native page scrolling at either edge; its project CTA currently points to Contact.
 - The services rail in `src/components/Services.jsx` contains seven editable concept offerings, including business websites, full-stack web apps, AI-powered features, commerce, product design, automation, and performance/SEO. It uses the same pointer-aware horizontal scrolling and native edge behavior and can be edited as the offering evolves.
-- Update the clearly marked `YOUR_*` social link placeholders in `src/components/SocialLinks.jsx`.
+- Social links are configured in `src/components/SocialLinks.jsx` for direct email, LinkedIn, X, and GitHub access.
 - Review the canonical and Open Graph URLs in `index.html` if the deployed domain changes. The social share card is `public/og-card.png` (with an editable SVG source alongside it).
 
-No real email address, phone number, or social profile is included in the starter content.
+The public contact email and social profiles are configured in the site. No phone number is included.
 
 ## Project structure
 

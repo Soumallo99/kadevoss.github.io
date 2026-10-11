@@ -1,10 +1,10 @@
 import { SocialIcon } from './Icons.jsx'
 
 const links = [
-  { label: 'Email', type: 'email', href: 'mailto:YOUR_EMAIL@example.com' },
-  { label: 'LinkedIn', type: 'linkedin', href: 'https://www.linkedin.com/in/YOUR_LINKEDIN_PROFILE' },
-  { label: 'X', type: 'x', href: 'https://x.com/YOUR_X_HANDLE' },
-  { label: 'GitHub', type: 'github', href: 'https://github.com/YOUR_GITHUB_USERNAME' },
+  { label: 'Email', type: 'email', href: 'mailto:debsoumallo@gmail.com' },
+  { label: 'LinkedIn', type: 'linkedin', href: 'https://www.linkedin.com/in/soumallo-deb-86a45a437' },
+  { label: 'X', type: 'x', href: 'https://x.com/soumallo62590' },
+  { label: 'GitHub', type: 'github', href: 'https://github.com/Soumallo99' },
 ]
 
 export default function SocialLinks({ compact = false }) {
@@ -14,10 +14,10 @@ export default function SocialLinks({ compact = false }) {
         <li key={link.type}>
           <a
             href={link.href}
-            aria-label={`${link.label} placeholder link`}
-            title={`${link.label} placeholder — update before launch`}
+            aria-label={link.type === 'email' ? 'Email Soumallo Deb' : `Open Soumallo Deb on ${link.label}`}
+            title={link.type === 'email' ? 'Email debsoumallo@gmail.com' : `Open Soumallo Deb on ${link.label}`}
             target={link.type === 'email' ? undefined : '_blank'}
-            rel={link.type === 'email' ? undefined : 'noreferrer'}
+            rel={link.type === 'email' ? undefined : 'noopener noreferrer'}
           >
             <SocialIcon type={link.type} className="social-icon" />
             {!compact && <span>{link.label}</span>}
